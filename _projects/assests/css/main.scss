@@ -1,0 +1,10 @@
+---
+---
+
+@import "minimal-mistakes/skins/dark";   // or your chosen skin
+@import "minimal-mistakes";              // theme core
+
+/* Your overrides */
+.page__title { letter-spacing: 0.2px; }
+.page__content { line-height: 1.75; font-size: 1.05rem; }
+.site-logo img { border-radius: 9999px; }
