@@ -1,1 +1,44 @@
-theme: minima
+title: "Adam Rychtecky"
+description: "Statistics & Data Science • Machine Learning • Cognitive Science"
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"  # works with GH Pages
+plugins:
+  - jekyll-include-cache
+  - jekyll-feed
+  - jekyll-sitemap
+
+# SEO & URL
+url: "https://<your-username>.github.io"
+baseurl: ""   # keep empty for user site
+
+logo: /assets/images/avatar.jpg
+author:
+  name: "Adam Rychtecky"
+  avatar: "/assets/images/avatar.jpg"
+  bio: "Stats & DS @ UCSB • VIU Lab • Honors Thesis on collective intelligence"
+  location: "Santa Barbara, CA"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-github"
+      url: "https://github.com/AdamRychtecky8"
+    - label: "LinkedIn"
+      icon: "fab fa-linkedin"
+      url: "https://www.linkedin.com/in/adamrychtecky/"
+    - label: "Email"
+      icon: "fas fa-envelope"
+      url: "mailto:your@email.com"
+
+# Navigation
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+defaults:
+  - scope: { path: "", type: "posts" }
+    values: { layout: single, author_profile: true }
+  - scope: { path: "", type: "projects" }
+    values: { layout: single, author_profile: true }
+
+# Theme options
+minimal_mistakes_skin: "dark"   # try "air", "contrast", "default", etc.
+search: true
