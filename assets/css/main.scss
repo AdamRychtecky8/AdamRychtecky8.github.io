@@ -1,10 +1,23 @@
 ---
 ---
 
-@import "minimal-mistakes/skins/dark";   // or your chosen skin
-@import "minimal-mistakes";              // theme core
+@import "minimal-mistakes/skins/dark";  // dark base
+@import "minimal-mistakes";
 
-/* Your overrides */
-.page__title { letter-spacing: 0.2px; }
+/* Minimal, professional blue gradient background */
+body {
+  background: linear-gradient(180deg, #0b1220 0%, #0b1220 40%, #0f1b2e 100%);
+}
+
+/* Keep masthead clean and readable on the gradient */
+.masthead {
+  background: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Optional: slightly larger, airier content */
 .page__content { line-height: 1.75; font-size: 1.05rem; }
-.site-logo img { border-radius: 9999px; }
+
+/* Optional: subtle link styling on dark */
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
