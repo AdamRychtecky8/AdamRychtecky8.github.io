@@ -1,6 +1,6 @@
 title: "Adam Rychtecky"
 description: "Statistics & Data Science • Machine Learning • Cognitive Science"
-remote_theme: "mmistakes/minimal-mistakes@4.24.0"  # works with GH Pages
+remote_theme: "mmistakes/minimal-mistakes@4.24.0" # works with GH Pages
 plugins:
   - jekyll-include-cache
   - jekyll-feed
@@ -40,6 +40,7 @@ defaults:
     values: { layout: single, author_profile: true }
 
 # Theme options
-minimal_mistakes_skin: "dark"   # try "air", "contrast", "default", etc.
+minimal_mistakes_skin: "dark" # try "air", "contrast", "default", etc.
 search: true
+
 
