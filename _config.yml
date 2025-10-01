@@ -1,19 +1,31 @@
+# ---- Site identity (kept for SEO; hidden in masthead via masthead_title) ----
 title: "Adam Rychtecky"
 description: "Statistics & Data Science • Machine Learning • Cognitive Science"
-remote_theme: "mmistakes/minimal-mistakes@4.24.0" # works with GH Pages
+
+# Theme (Minimal Mistakes via remote_theme works on GitHub Pages)
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+minimal_mistakes_skin: "dark"
+search: true
+
+# Hide the big site title in the top navigation bar (avoid duplicate name)
+masthead_title: ""   # <— CHANGE: keeps SEO title, removes masthead label
+
+# ---- SEO & URL ----
+url: "https://adamrychtecky8.github.io"
+baseurl: ""         # user site => keep empty
+
+# ---- Plugins (GitHub Pages–safe) ----
 plugins:
   - jekyll-include-cache
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag     # <— CHANGE: adds proper SEO tags
 
-# SEO & URL
-url: "https://adamrychtecky8.github.io"
-baseurl: ""   # keep empty for user site
-
-logo:
+# ---- Author (optional; keep avatar blank to avoid 404s) ----
+logo:                 # keep blank (no logo image to avoid broken icon)
 author:
   name: "Adam Rychtecky"
-  avatar: "/assets/images/avatar.jpg"
+  avatar:             # <— CHANGE: emptied so theme doesn’t try to load a missing file
   bio: "Stats & DS @ UCSB • VIU Lab • Honors Thesis on collective intelligence"
   location: "Santa Barbara, CA"
   links:
@@ -27,21 +39,41 @@ author:
       icon: "fas fa-envelope"
       url: "mailto:your@email.com"
 
-# Navigation
+# ---- Collections ----
 collections:
   projects:
     output: true
     permalink: /projects/:name/
 
+# ---- Defaults (prevents duplicate sidebars; sets wide layout on projects) ----
 defaults:
-  - scope: { path: "", type: "posts" }
-    values: { layout: single, author_profile: true }
-  - scope: { path: "", type: "projects" }
-    values: { layout: single, author_profile: true }
+  # Pages (like index.md, research.md, projects.md, etc.)
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: single
+      author_profile: false   # <— CHANGE: avoid sidebar/name duplication
 
-# Theme options
-minimal_mistakes_skin: "dark" # try "air", "contrast", "default", etc.
-search: true
+  # Blog posts (you can flip to true if you want the author box on posts)
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: single
+      author_profile: false   # <— CHANGE: set false by default; enable per-post if desired
 
+  # Projects (collection items in /_projects/)
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: single
+      classes: wide           # <— CHANGE: wider content area looks better for project pages
+      author_profile: false
 
+# ---- Optional: Permalinks (pretty URLs for posts) ----
+# permalink: /:categories/:title/
 
+# ---- Optional: Analytics (add later) ----
+# google_analytics: "G-XXXXXXX"
