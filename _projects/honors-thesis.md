@@ -14,5 +14,4 @@ header:
 **Tech.** Python, Jupyter, GitHub Actions; GPT/Gemini (vision), reproducible metadata.
 
 **Links.**
-- 🔗 Repo: <https://github.com/YOUR_USER/HonorsProject>  
-- 📄 Methods PDF: /assets/papers/methods.pdf
+- 🔗 Repo: <https://github.com/adamrychtecky8/HonorsProject>  
