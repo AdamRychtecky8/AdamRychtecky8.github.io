@@ -10,7 +10,7 @@ plugins:
 url: "https://adamrychtecky8.github.io"
 baseurl: ""   # keep empty for user site
 
-logo: /assets/images/avatar.jpg
+logo:
 author:
   name: "Adam Rychtecky"
   avatar: "/assets/images/avatar.jpg"
@@ -42,5 +42,6 @@ defaults:
 # Theme options
 minimal_mistakes_skin: "dark" # try "air", "contrast", "default", etc.
 search: true
+
 
 
