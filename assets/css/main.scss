@@ -1,59 +1,85 @@
 ---
-# This front matter ensures Jekyll processes SCSS
+# ensure jekyll processes this as SCSS
 ---
 
-@import "minimal-mistakes/skins/dark"; // base dark
+@import "minimal-mistakes/skins/dark"; // base dark skin
 @import "minimal-mistakes";            // theme styles
 
-/* Accent variables (kept restrained) */
+/* ===============================
+   Custom Portfolio Styling
+   =============================== */
+
+/* Accent color palette */
 :root {
-  --brand-blue: #5aa6ff;              /* subtle blue accent */
-  --brand-blue-2: #7bb8ff;
+  --brand-blue: #5aa6ff;   /* subtle accent */
+  --brand-blue-2: #7bb8ff; /* hover accent */
 }
 
-/* Background: subtle dark → blue gradient */
+/* Background: dark w/ faint blue glow */
 body {
-  background: radial-gradient(80vw 80vh at 70% 10%, rgba(90,166,255,0.08), rgba(0,0,0,0)) ,
-              linear-gradient(180deg, #0d1117 0%, #0b0f14 60%, #0a0e13 100%);
+  background: radial-gradient(
+               80vw 80vh at 70% 12%, 
+               rgba(90,166,255,0.08), 
+               rgba(0,0,0,0)
+             ),
+             linear-gradient(
+               180deg, #0d1117 0%, 
+               #0b0f14 60%, 
+               #0a0e13 100%
+             );
 }
 
-/* Links + minor accents */
+/* ===============================
+   Masthead (top navigation bar)
+   =============================== */
+.masthead {
+  border-radius: 0 0 14px 14px;  /* rounded bottom corners */
+  overflow: hidden;              /* clip background inside */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5); /* subtle depth */
+  position: relative;
+  z-index: 1000;
+}
+
+/* Thin soft border line under masthead */
+.masthead::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 0 0 14px 14px;
+}
+
+/* ===============================
+   Typography + Links
+   =============================== */
+h1, h2, h3, h4 {
+  color: #e6edf3;
+}
+
 a, .page__title a {
   color: var(--brand-blue);
 }
+
 a:hover {
   color: var(--brand-blue-2);
   text-decoration-color: var(--brand-blue-2);
 }
 
-/* Headings—slightly brighter for legibility on dark */
-h1, h2, h3 {
-  color: #e6edf3;
-}
-
-/* Remove avatar spacing if no image */
-.author__avatar { display: none; }
-
-/* Optional: tighten content width on homepage */
+/* ===============================
+   Homepage Layout
+   =============================== */
 .home .page {
   max-width: 920px;
-}
-/* Round masthead corners + soften border */
-.masthead {
-  border-radius: 0 0 12px 12px;   /* bottom corners rounded */
-  overflow: hidden;               /* clip background */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4); /* subtle depth */
+  margin: 0 auto;
+  border-radius: 12px;                /* rounded content edges */
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.02); /* subtle card effect */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
-/* Optional: add a thin border line */
-.masthead::after {
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 0 0 12px 12px;
-}
+/* Remove avatar spacing (no headshot) */
+.author__avatar { display: none; }
