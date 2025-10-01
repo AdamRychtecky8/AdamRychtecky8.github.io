@@ -83,3 +83,39 @@ a:hover {
 
 /* Remove avatar spacing (no headshot) */
 .author__avatar { display: none; }
+
+/* Projects grid card polish */
+.archive__item {
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.02);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+
+.archive__item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  background: rgba(255,255,255,0.03);
+}
+
+/* Title & excerpt readability */
+.archive__item-title { color: #e6edf3; }
+.archive__item-excerpt { color: #b8c0c7; }
+
+/* Tag pills */
+.page__meta a, .taxonomy__index a {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  margin: 0.15rem 0.25rem 0 0;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  background: rgba(90,166,255,0.12);
+  color: #cfe4ff;
+}
+
+/* Keep project cards equal height on grid */
+.grid__item { display: flex; }
+.archive__item { display: flex; flex-direction: column; }
+.archive__item-excerpt { flex-grow: 1; }
+
