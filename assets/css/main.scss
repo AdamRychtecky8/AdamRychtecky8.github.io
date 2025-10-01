@@ -38,3 +38,22 @@ h1, h2, h3 {
 .home .page {
   max-width: 920px;
 }
+/* Round masthead corners + soften border */
+.masthead {
+  border-radius: 0 0 12px 12px;   /* bottom corners rounded */
+  overflow: hidden;               /* clip background */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4); /* subtle depth */
+}
+
+/* Optional: add a thin border line */
+.masthead::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 0 0 12px 12px;
+}
