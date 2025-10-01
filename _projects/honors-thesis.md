@@ -1,14 +1,18 @@
 ---
 title: "Honors Thesis: Flexible Collective Intelligence in LLMs"
-excerpt: "Replicating Juni & Eckstein's Gaussian-blob detection with LLM ensembles."
+excerpt: "LLM 'groups' vs human group heuristics in Gaussian-blob detection."
 header:
-  overlay_image: /assets/images/thumb_thesis.jpg
+  overlay_color: "#000"
+  overlay_filter: 0.3
+  overlay_image:    # keep empty (no image)
 ---
 
-**Goal.** Test whether LLM “groups” show flexible wisdom like humans.
+**Summary.** Replicates Juni & Eckstein’s perceptual decision paradigm using LLM ensembles.
 
-**What I built.** Stimulus generator, trial runner, LLM prompting pipeline, analysis.
+**My contributions.** Stimulus generation, trial runner, prompting, preflight tests, analysis plan.
 
 **Tech.** Python, Jupyter, GitHub Actions; GPT/Gemini (vision), reproducible metadata.
 
-**Links.** 
+**Links.**
+- 🔗 Repo: <https://github.com/YOUR_USER/HonorsProject>  
+- 📄 Methods PDF: /assets/papers/methods.pdf
