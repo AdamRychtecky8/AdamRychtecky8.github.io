@@ -1,23 +1,335 @@
+Skip to content
+Chat history
+
+You said:
+Prompt for new agent
+
+I am building a personal portfolio website for graduate school and employer applications using GitHub Pages + Jekyll (Minimal Mistakes theme).
+
+Current status
+
+Repo: a user site (adamrychtecky8.github.io).
+
+Base site builds successfully with Minimal Mistakes (dark theme + custom CSS).
+
+index.md is minimal (my name, intro, quick links).
+
+No broken images (removed avatar/logo).
+
+Custom gradient background via assets/css/main.scss.
+
+Navigation defined in _data/navigation.yml.
+
+projects collection is enabled in _config.yml and I plan to add one Markdown page per project (_projects/).
+
+Resume PDF will live in /assets/resume.pdf.
+
+Research page and blog are placeholders, not yet filled.
+
+Goals for this project
+
+Polish the look (dark minimal with subtle blue accents, clean typography, responsive).
+
+Organize Projects, Research, Blog, and Resume into a coherent structure.
+
+Ensure GitHub Pages deployment works smoothly (no duplicate names, no broken icons).
+
+Learn how to iterate — add/remove projects, tweak CSS, and control layout.
+
+Optionally set up extras: analytics, custom domain, SEO.
+
+What I need from you
+
+Give me guidance on customizing the site (looks, navigation, content structure).
+
+Provide clear Markdown/YAML/CSS snippets I can drop in.
+
+Show me best practices for keeping it simple but professional (academic + recruiter friendly).
+
+Help troubleshoot if builds fail or visuals don’t look right.
+
+🔹 Best Way to Get the Agent Caught Up
+
+Share the repo structure you currently have (top-level folders + key files). Example:
+
+.
+├── _config.yml
+├── _data/
+│   └── navigation.yml
+├── _projects/
+│   └── honors-thesis.md
+├── assets/
+│   ├── css/
+│   │   └── main.scss
+│   └── resume.pdf
+├── index.md
+└── projects.md
+
+
+Paste the first 20–30 lines of _config.yml (it controls theme, skin, collections).
+
+Show them your current index.md so they know how you’re handling the homepage.
+
+Be sure to ask for material you need and I will provide the index.md below. Also reach my github repository if you can.
+
 ---
+layout: single
+title: "Adam Rychtecky"
+permalink: /
+classes: wide
+author_profile: false   # hides the sidebar profile that can duplicate your name
+toc: false
 ---
 
-@import "minimal-mistakes/skins/dark";  // dark base
-@import "minimal-mistakes";
+Hi, I’m **Adam Rychtecky** — Statistics & Data Science @ UCSB.  
+I work at the intersection of **machine learning**, **human decision-making**, and **cognitive science**.  
+Right now I’m:
+- **Researching** flexible collective intelligence with LLMs (Honors Thesis, VIU Lab).
+- **Building** *Dialed*, a React Native app for athlete mental readiness (AI “Caddie”, assessments, timers).
+- **Honing** applied DS/ML skills (Bayesian inference, CNNs, Azure ML).
 
-/* Minimal, professional blue gradient background */
+### Quick links
+- ▶️ [Projects](/projects/)
+- 🧠 [Research](/research/)
+- 📝 [Blog](/posts/)
+- 📄 [Resume](/assets/resume.pdf)
+
+If you’re a faculty member or recruiter, you’ll find concise overviews on each project page with links to code and PDFs.
+ChatGPT said:
+
+Thought
+Awesome—here’s a clean, copy-pasteable prompt you can hand to a fresh agent so they’re immediately useful on your portfolio repo. I’ve also included a tiny “starter kit” of code snippets the agent can reference when they respond to you.
+
+Master prompt to give the new agent (paste as-is)
+You are my site engineer for a personal portfolio built with GitHub Pages + Jekyll (Minimal Mistakes theme).
+
+Current status
+Repo: adamrychtecky8.github.io (user site).
+
+Base site builds with Minimal Mistakes using dark styling and custom CSS.
+
+index.md is simple (name, intro, quick links).
+
+No images/avatars for now; removed logo to avoid broken icons.
+
+Custom subtle blue gradient background via assets/css/main.scss.
+
+Navigation lives in _data/navigation.yml.
+
+projects collection is enabled in _config.yml; I’ll add Markdown files in _projects/.
+
+Resume PDF at /assets/resume.pdf.
+
+Research page and Blog are placeholders.
+
+Goals
+Polish visuals (dark, minimal, subtle blue accents, clean typography, responsive).
+
+Organize Projects, Research, Blog, Resume coherently.
+
+Keep GitHub Pages builds clean (no duplicate names/icons).
+
+Learn to iterate confidently (add/remove projects, tweak CSS, control layout).
+
+Optional: analytics, custom domain, basic SEO.
+
+What I need from you
+Concrete guidance on customizing looks, navigation, and content structure.
+
+Drop-in Markdown/YAML/CSS snippets.
+
+Best practices for a professional, recruiter-friendly academic site.
+
+Troubleshooting help if builds fail or visuals are off.
+
+How to get caught up quickly
+I will paste:
+
+My repo tree (top-level folders + key files),
+
+The first 20–30 lines of _config.yml,
+
+My current index.md.
+
+Then:
+
+Explain what you see, call out issues, and propose specific edits (with exact file paths).
+
+Provide minimal, copy-ready diffs or full-file snippets.
+
+Prioritize: (A) clean header w/ no duplicate name, (B) blue-tinted dark gradient background, (C) tidy nav, (D) projects collection scaffolding.
+
+Conventions & constraints
+Theme: Minimal Mistakes; prefer config over plugins (GitHub Pages safe list).
+
+Avoid heavy assets. No avatars for now.
+
+Keep CSS scoped to assets/css/main.scss and variables where possible.
+
+Use author_profile: false on pages where my name would duplicate.
+
+Keep content tone concise and professional; defer flair to CSS.
+
+When suggesting code, give the exact file path and a complete block that I can paste.
+
+Deliverables you should produce
+A short review of my current config with “fix/keep” bullets.
+
+Clean navigation.yml tailored to Projects / Research / Blog / Resume.
+
+A minimal index.md that avoids duplicate titles and looks good in dark mode.
+
+A main.scss snippet that implements a subtle dark → blue gradient and tasteful accent color.
+
+A skeleton /_projects/honors-thesis.md example (front matter + layout).
+
+Optional toggles for analytics, SEO, and custom domain steps (CNAME).
+
+When builds fail
+Point to likely offenders (bad front matter, missing collection output, unsafe plugins, bad permalinks).
+
+Suggest a single, safe fix first. Show a tiny reproducible edit.
+
+Style of your responses
+Start with a 3–5 item plan.
+
+Follow with labeled code blocks and file paths.
+
+End with a tiny “After you paste these, verify:” checklist.
+
+I’ll begin by pasting my repo tree, _config.yml head, and index.md. Use them to give precise, minimal edits.
+
+Starter kit (give this to the agent too, so they can reference quickly)
+1) _config.yml (top block template)
+title: "Adam Rychtecky"
+description: "Statistics & Data Science @ UCSB • ML • Human Decision-Making • Cognitive Science"
+url: "https://adamrychtecky8.github.io"
+baseurl: ""  # user site => keep empty
+theme: minimal-mistakes-jekyll
+
+# Minimal Mistakes options
+minimal_mistakes_skin: "dark"  # base dark; we’ll accent via CSS
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-include-cache
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: single
+      author_profile: false
+      classes: wide
+2) _data/navigation.yml (clean, recruiter-friendly)
+main:
+  - title: "Projects"
+    url: /projects/
+  - title: "Research"
+    url: /research/
+  - title: "Blog"
+    url: /posts/
+  - title: "Resume"
+    url: /assets/resume.pdf
+3) assets/css/main.scss (subtle blue-on-dark gradient + accents)
+---
+# This front matter ensures Jekyll processes SCSS
+---
+
+@import "minimal-mistakes/skins/dark"; // base dark
+@import "minimal-mistakes";            // theme styles
+
+/* Accent variables (kept restrained) */
+:root {
+  --brand-blue: #5aa6ff;              /* subtle blue accent */
+  --brand-blue-2: #7bb8ff;
+}
+
+/* Background: subtle dark → blue gradient */
 body {
-  background: linear-gradient(180deg, #0b1220 0%, #0b1220 40%, #0f1b2e 100%);
+  background: radial-gradient(80vw 80vh at 70% 10%, rgba(90,166,255,0.08), rgba(0,0,0,0)) ,
+              linear-gradient(180deg, #0d1117 0%, #0b0f14 60%, #0a0e13 100%);
 }
 
-/* Keep masthead clean and readable on the gradient */
-.masthead {
-  background: transparent;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+/* Links + minor accents */
+a, .page__title a {
+  color: var(--brand-blue);
+}
+a:hover {
+  color: var(--brand-blue-2);
+  text-decoration-color: var(--brand-blue-2);
 }
 
-/* Optional: slightly larger, airier content */
-.page__content { line-height: 1.75; font-size: 1.05rem; }
+/* Headings—slightly brighter for legibility on dark */
+h1, h2, h3 {
+  color: #e6edf3;
+}
 
-/* Optional: subtle link styling on dark */
-a { text-decoration: none; }
-a:hover { text-decoration: underline; }
+/* Remove avatar spacing if no image */
+.author__avatar { display: none; }
+
+/* Optional: tighten content width on homepage */
+.home .page {
+  max-width: 920px;
+}
+4) index.md (minimal, no duplicate name)
+---
+layout: single
+title: "Adam Rychtecky"
+permalink: /
+classes: wide
+author_profile: false
+toc: false
+---
+
+Hi, I’m **Adam Rychtecky** — Statistics & Data Science @ UCSB.  
+I work at the intersection of **machine learning**, **human decision-making**, and **cognitive science**.
+
+**Now**
+- Researching flexible collective intelligence with LLMs (Honors Thesis, VIU Lab).
+- Building *Dialed* — React Native app for athlete mental readiness (AI Caddie, assessments, timers).
+- Honing applied DS/ML (Bayesian inference, CNNs, Azure ML).
+
+### Quick links
+- ▶️ [Projects](/projects/)
+- 🧠 [Research](/research/)
+- 📝 [Blog](/posts/)
+- 📄 [Resume](/assets/resume.pdf)
+5) projects.md (collection index)
+---
+layout: collection
+title: "Projects"
+collection: projects
+permalink: /projects/
+classes: wide
+author_profile: false
+---
+6) Example project: /_projects/honors-thesis.md
+---
+title: "Flexible Collective Intelligence with LLMs"
+excerpt: "Adapting Juni & Eckstein’s paradigm to large language models."
+date: 2025-09-01
+tags: [LLM, perception, decision-making, Bayesian]
+---
+
+Concise overview (what/why/impact).  
+Links: [Paper PDF](/assets/honors-thesis.pdf) • [Code](https://github.com/AdamRychtecky8/HonorsProject)
+7) Optional: enable SEO & analytics (safe for GitHub Pages)
+# in _config.yml
+google_analytics: ""   # add GA id if/when ready (e.g., G-XXXX)
+# jekyll-seo-tag already enabled in plugins
+If you want, I can also produce a one-screen “First Reply Template” the agent should send after you paste your _config.yml head + index.md—but this should be all you need to kick things off smoothly.
+
+
+
+
+No file chosenNo file chosen
+ChatGPT can make mistakes. Check important info.
