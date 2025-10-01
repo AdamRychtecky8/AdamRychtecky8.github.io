@@ -18,6 +18,6 @@ Right now I’m:
 - ▶️ [Projects](/projects/)
 - 🧠 [Research](/research/)
 - 📝 [Blog](/posts/)
-- 📄 [Resume](/assets/resume.pdf)
+- 📄 [Resume](/assets/Graduate_School_resume.pdf)
 
 If you’re a faculty member or recruiter, you’ll find concise overviews on each project page with links to code and PDFs.
