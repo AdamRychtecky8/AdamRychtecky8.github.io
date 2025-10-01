@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Adam Rychtecky"
+title: "Adam's Portfolio"
 permalink: /
 classes: wide
 author_profile: false   # hides the sidebar profile that can duplicate your name
