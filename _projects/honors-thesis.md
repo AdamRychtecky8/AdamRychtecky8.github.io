@@ -14,4 +14,4 @@ header:
 **Tech.** Python, Jupyter, GitHub Actions; GPT/Gemini (vision), reproducible metadata.
 
 **Links.**
-- 🔗 Repo: <https://github.com/adamrychtecky8/HonorsProject>  
+- [📂 View GitHub Repo](https://github.com/AdamRychtecky8/Honors_Project){: .btn .btn--primary }
