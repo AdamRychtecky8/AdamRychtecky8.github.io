@@ -7,6 +7,8 @@ header:
   overlay_image:    # keep empty (no image)
 ---
 
+**In Progress** In late stages of data collection, scheduled to finish by end of 2025.
+
 **Summary.** Replicates Juni & Eckstein’s perceptual decision paradigm using LLM ensembles.
 
 **My contributions.** Stimulus generation, trial runner, prompting, preflight tests, analysis plan.
