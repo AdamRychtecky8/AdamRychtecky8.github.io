@@ -24,6 +24,9 @@ I’m **Adam Rychtecky**, a senior at UC Santa Barbara studying **Statistics & D
 - Data Science Concepts & Analysis (PSTAT 100)  
 - Machine Learning–oriented projects (regression, ZINB, clustering, PCA)
 
+[📄 View Transcript](/assets/transcript.pdf){: .btn .btn--primary }  
+[📘 Coursework Details](/coursework/){: .btn .btn--info }
+
 ## Contact
 [LinkedIn](https://www.linkedin.com/in/adam-rychtecky-4a360130a){: .btn }  
 [GitHub](https://github.com/AdamRychtecky8){: .btn }  
