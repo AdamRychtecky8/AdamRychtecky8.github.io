@@ -6,7 +6,7 @@ classes: wide
 author_profile: false
 ---
 
-I’m **Adam Rychtecky**, a senior at UC Santa Barbara studying **Statistics & Data Science** with additional coursework in **Psychological & Brain Science**. I’m pursuing graduate study in **Data Science** to deepen expertise in **statistical modeling**, **machine learning**, and **applied research** that bridges data-driven methods with real-world impact.
+I’m currently pursuing graduate study in **Data Science** to deepen expertise in **statistical modeling**, **machine learning**, and **applied research** that bridges data-driven methods with real-world impact. My goal is to build the methodological skills needed to to address complex, data-driven problems in the real world. Graduate training will give me the foothold needed to kickstart my career, equipping me with both the technical foundation and applied perspective to the world of data.
 
 ## Focus & Interests
 - **Statistical Learning & Inference:** regression, generalized linear models, time series, Bayesian methods  
