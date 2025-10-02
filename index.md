@@ -7,12 +7,19 @@ author_profile: false   # hides the sidebar profile that can duplicate your name
 toc: false
 ---
 
-Hi, I’m **Adam Rychtecky** — Statistics & Data Science @ UCSB.  
-I work at the intersection of **machine learning**, **human decision-making**, and **cognitive science**.  
-Right now I’m:
-- **Researching** flexible collective intelligence with LLMs (Honors Thesis, VIU Lab).
-- **Building** *Dialed*, a React Native app for athlete mental readiness (AI “Caddie”, assessments, timers).
-- **Honing** applied DS/ML skills (Bayesian inference, CNNs, Azure ML).
+Hi, I’m **Adam Rychtecky** — a senior at UC Santa Barbara studying **Statistics & Data Science** with double major in **Psychological & Brain Science**.  
+I focus on applying **statistical modeling and machine learning** to complex human and societal problems, combining rigorous data analysis with cognitive science insights.  
+
+I have hands-on experience with:  
+- **Research:** Executive Research Assistant in the **Vision & Image Understanding Lab**, conducting psychophysics experiments, human–AI decision studies, and advanced data collection/analysis.  
+- **Applied Data Science:** Projects in **predictive modeling, clustering, and forecasting**, including Olympic socioeconomics (ZINB + PCA) and IMDb box office revenue modeling (multiple regression + diagnostics).  
+- **Technical Skills:** Proficient in **Python, R, and SQL**, with experience in machine learning (regression, classification, NLP, deep learning), Azure AI, and reproducible research workflows.  
+
+Right now, I’m:  
+- **Researching** flexible collective intelligence with LLMs for my Honors Thesis.  
+- **Building** *Dialed*, a React Native app integrating AI-driven performance coaching for athletes.  
+- **Preparing** for graduate study in Data Science, with a focus on **statistical modeling, machine learning, and real-world problem solving**.  
+
 
 ### Quick links
 - ▶️ [Projects](/projects/)
