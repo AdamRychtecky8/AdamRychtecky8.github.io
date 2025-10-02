@@ -23,8 +23,7 @@ Right now, I’m:
 
 ### Quick links
 - ▶️ [Projects](/projects/)
-- 🧠 [Research](/research/)
-- 📝 [Blog](/posts/)
 - 📄 [Resume](/assets/Graduate_School_resume.pdf)
+- 👋 [About](/about/)
 
 If you’re a faculty member or recruiter, you’ll find concise overviews on each project page with links to code and PDFs.
