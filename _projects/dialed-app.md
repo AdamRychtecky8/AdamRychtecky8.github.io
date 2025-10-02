@@ -6,6 +6,8 @@ tags: [React Native, Expo, TypeScript, UX]
 weight: 8
 ---
 
+**In Progress** In initial building stages as of late 2025.
+
 **Stack:** React Native (Expo), TypeScript, Zustand, React Navigation, Reanimated.  
 **Focus:** Simple UX, haptics, gradient visuals; pilot with golfers.  
 **Links:** [Repo](https://github.com/AdamRychtecky8/Dialed-App)
