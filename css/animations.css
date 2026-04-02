@@ -1,0 +1,39 @@
+/* ── Canvas & motion styles ── */
+
+/* Skill bars animate on load */
+@keyframes fillBar {
+  from { width: 0; }
+}
+
+/* Fade-in for page sections */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  animation: fadeUp 0.55s ease both;
+}
+
+.fade-up:nth-child(1) { animation-delay: 0.05s; }
+.fade-up:nth-child(2) { animation-delay: 0.12s; }
+.fade-up:nth-child(3) { animation-delay: 0.19s; }
+.fade-up:nth-child(4) { animation-delay: 0.26s; }
+.fade-up:nth-child(5) { animation-delay: 0.33s; }
+.fade-up:nth-child(6) { animation-delay: 0.40s; }
+
+/* Hero text entrance */
+.hero-animate {
+  animation: fadeUp 0.7s ease both;
+}
+.hero-animate.delay-1 { animation-delay: 0.15s; }
+.hero-animate.delay-2 { animation-delay: 0.3s; }
+.hero-animate.delay-3 { animation-delay: 0.45s; }
+
+/* Project card hidden state for filter transitions */
+.project-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.25s ease;
+}
+.project-card.hidden {
+  display: none;
+}

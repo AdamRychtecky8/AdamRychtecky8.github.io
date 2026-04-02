@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Adam Rychtecky</title>
+  <meta name="description" content="Data science and machine learning projects by Adam Rychtecky." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- Lite canvas -->
+  <canvas id="bg-canvas" data-lite></canvas>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html" class="nav-brand">Adam Rychtecky</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="resume.html">Resume</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-content">
+    <div class="container">
+
+      <section>
+        <h2>Projects</h2>
+
+        <!-- Filter bar -->
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="ml">Machine Learning</button>
+          <button class="filter-btn" data-filter="psychology">Psychology</button>
+          <button class="filter-btn" data-filter="data">Data Analysis</button>
+          <button class="filter-btn" data-filter="other">Other</button>
+        </div>
+
+        <!-- Project grid -->
+        <div class="projects-grid">
+
+          <!-- Honors Thesis -->
+          <div class="project-card fade-up" data-category="ml psychology">
+            <h3>Honors Thesis: Flexible Collective Intelligence in LLMs</h3>
+            <p>Replicates Juni &amp; Eckstein&rsquo;s Gaussian-blob detection paradigm with LLM ensembles (GPT-4o, Gemini). Compares AI group heuristics against human collective decision-making models.</p>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">LLMs</span>
+              <span class="tag">Psychophysics</span>
+              <span class="tag">GitHub Actions</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/AdamRychtecky8/Honors_Project" class="card-link" target="_blank" rel="noopener">GitHub</a>
+              <a href="#" class="card-link">[Live Demo]</a>
+            </div>
+          </div>
+
+          <!-- Dialed App -->
+          <div class="project-card fade-up" data-category="other">
+            <h3>Dialed — Mental Readiness for Athletes</h3>
+            <p>React Native + Expo app delivering AI &ldquo;Caddie&rdquo; guidance, readiness assessments, and timers. Designed for simple UX with haptics and gradient visuals. Piloting with golfers.</p>
+            <div class="tags">
+              <span class="tag">React Native</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Expo</span>
+              <span class="tag">Zustand</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/AdamRychtecky8/Dialed-App" class="card-link" target="_blank" rel="noopener">GitHub</a>
+              <a href="#" class="card-link">[Live Demo]</a>
+            </div>
+          </div>
+
+          <!-- Olympics -->
+          <div class="project-card fade-up" data-category="ml data">
+            <h3>Gold, Growth, and Glory: Socioeconomic Drivers of Olympic Success</h3>
+            <p>Economic analysis of how GDP, GDP per capita, and population predict medal counts (Paris 2024). Poisson &rarr; ZINB modeling, K-Means clustering (k=3), and PCA for country segmentation.</p>
+            <div class="tags">
+              <span class="tag">R</span>
+              <span class="tag">ZINB</span>
+              <span class="tag">K-Means</span>
+              <span class="tag">PCA</span>
+            </div>
+            <div class="card-actions">
+              <a href="assets/PSTAT100_finalproject.pdf" class="card-link" target="_blank">Report PDF</a>
+              <a href="#" class="card-link">[GitHub]</a>
+            </div>
+          </div>
+
+          <!-- IMDb -->
+          <div class="project-card fade-up" data-category="ml data">
+            <h3>IMDb Movies: Revenue Prediction Model</h3>
+            <p>Multiple regression study predicting global box office revenue from budgets, ratings, and votes (~7,000 U.S. films, 1960–2024). Box-Cox transformation, stepwise selection, Cook&rsquo;s Distance diagnostics. Adj. R² ≈ 0.47.</p>
+            <div class="tags">
+              <span class="tag">R</span>
+              <span class="tag">Regression</span>
+              <span class="tag">Box-Cox</span>
+              <span class="tag">Diagnostics</span>
+            </div>
+            <div class="card-actions">
+              <a href="assets/PSTAT126_FinalReport.pdf" class="card-link" target="_blank">Report PDF</a>
+              <a href="#" class="card-link">[GitHub]</a>
+            </div>
+          </div>
+
+          <!-- Particulate Matter Review -->
+          <div class="project-card fade-up" data-category="data psychology">
+            <h3>Particulate Matter Systematic Review</h3>
+            <p>[ONE LINE DESCRIPTION — add a brief description of this project]</p>
+            <div class="tags">
+              <span class="tag">[TAG 1]</span>
+              <span class="tag">[TAG 2]</span>
+            </div>
+            <div class="card-actions">
+              <a href="assets/ParticulateMatterReview.pdf" class="card-link" target="_blank">Report PDF</a>
+              <a href="#" class="card-link">[GitHub]</a>
+            </div>
+          </div>
+
+          <!-- Placeholder for future project -->
+          <div class="project-card fade-up" data-category="other">
+            <h3>[PROJECT NAME]</h3>
+            <p>[ONE LINE DESCRIPTION — replace with your next project]</p>
+            <div class="tags">
+              <span class="tag">[TECH STACK TAG]</span>
+            </div>
+            <div class="card-actions">
+              <a href="#" class="card-link">[GitHub]</a>
+              <a href="#" class="card-link">[Live Demo]</a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Adam Rychtecky &mdash; <a href="https://github.com/AdamRychtecky8" style="color:var(--teal);text-decoration:none;">GitHub</a> &middot; <a href="https://www.linkedin.com/in/adam-rychtecky-4a360130a" style="color:var(--teal);text-decoration:none;">LinkedIn</a></p>
+    </footer>
+  </div>
+
+  <script src="js/background.js"></script>
+  <script src="js/nav.js"></script>
+  <script>
+    // Filter behaviour
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        projectCards.forEach(card => {
+          if (filter === 'all') {
+            card.classList.remove('hidden');
+          } else {
+            const cats = card.dataset.category || '';
+            card.classList.toggle('hidden', !cats.includes(filter));
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
