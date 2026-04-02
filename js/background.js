@@ -6,8 +6,8 @@
   if (!canvas) return;
 
   const isLite = canvas.dataset.lite !== undefined;
-  const PARTICLE_COUNT = isLite ? 20 : 55;
-  const MAX_DIST = isLite ? 60 : 90;
+  const PARTICLE_COUNT = canvas.dataset.particles ? parseInt(canvas.dataset.particles) : (isLite ? 20 : 55);
+  const MAX_DIST       = canvas.dataset.maxdist   ? parseInt(canvas.dataset.maxdist)   : (isLite ? 60 : 90);
   const ALPHA_SCALE = isLite ? 0.7 : 1.0; // 30% reduction for lite
 
   const ctx = canvas.getContext('2d');

@@ -7,16 +7,19 @@
   <meta name="description" content="Adam Rychtecky — Statistics & Data Science, UC Santa Barbara. Machine learning, human-AI systems, cognitive science." />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/animations.css" />
+  <style>
+    /* index.html only — center nav links, no brand */
+    nav.site-nav .container { justify-content: center; }
+  </style>
 </head>
 <body>
 
-  <!-- Animated canvas (55 particles, home page spec) -->
-  <canvas id="bg-canvas"></canvas>
+  <!-- Animated canvas (110 particles, home page spec) -->
+  <canvas id="bg-canvas" data-particles="110" data-maxdist="130"></canvas>
 
   <!-- Navigation -->
   <nav class="site-nav">
     <div class="container">
-      <a href="index.html" class="nav-brand">Adam Rychtecky</a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -30,7 +33,8 @@
   <!-- Hero -->
   <section class="hero">
     <h1 class="hero-animate">Adam Rychtecky</h1>
-    <p class="tagline hero-animate delay-1">data scientist · cognitive scientist · human-AI systems</p>
+    <p class="hero-animate delay-1" style="font-size:15px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:#1D9E75;margin-bottom:0.5rem;">Data Science &middot; Machine Learning &middot; Human-AI Systems</p>
+    <p class="hero-animate delay-1" style="font-size:17px;font-weight:400;font-style:italic;color:#5a5a56;margin-bottom:2rem;">Aspiring to design AI systems that work with people, not past them</p>
     <div class="hero-actions hero-animate delay-2">
       <a href="projects.html" class="btn-primary">View My Work</a>
       <a href="about.html"    class="btn-secondary">About Me</a>
@@ -44,16 +48,16 @@
         <h2>Highlights</h2>
         <div class="stats-grid">
           <div class="stat-card fade-up">
-            <span class="stat-num">5+</span>
-            <span class="stat-label">Data science &amp; ML projects</span>
-          </div>
-          <div class="stat-card fade-up">
             <span class="stat-num">2+</span>
-            <span class="stat-label">Years research experience (VIU Lab)</span>
+            <span class="stat-label">Years of active AI &amp; vision research</span>
           </div>
           <div class="stat-card fade-up">
-            <span class="stat-num">2026</span>
-            <span class="stat-label">B.S. Statistics &amp; Data Science, UCSB</span>
+            <span class="stat-num">UW</span>
+            <span class="stat-label">MS Data Science &mdash; admitted, starting soon</span>
+          </div>
+          <div class="stat-card fade-up">
+            <span class="stat-num">UCSB</span>
+            <span class="stat-label">B.S. Statistics &amp; Data Science &middot; B.S. Psychological &amp; Brain Sciences</span>
           </div>
         </div>
       </section>
