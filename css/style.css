@@ -506,6 +506,93 @@ footer {
   color: var(--text-sec);
 }
 
+/* ── Get in Touch ── */
+.contact-section {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.contact-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 10px;
+}
+
+.contact-heading {
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.contact-divider {
+  width: 40px;
+  height: 1.5px;
+  background: rgba(29,158,117,0.25);
+  margin: 0 auto 28px;
+  border: none;
+}
+
+.contact-subtext {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-sec);
+  margin-bottom: 36px;
+}
+
+.contact-email {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--teal);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(29,158,117,0.3);
+  padding-bottom: 2px;
+  transition: border-color 0.2s;
+}
+.contact-email:hover {
+  border-color: #1D9E75;
+}
+
+.contact-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.btn-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 10px 28px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.15s, background 0.15s;
+}
+
+.btn-linkedin {
+  background: var(--teal);
+  color: #fff;
+  border: none;
+}
+.btn-linkedin:hover { opacity: 0.88; }
+
+.btn-github {
+  background: transparent;
+  color: var(--teal);
+  border: 1px solid var(--teal);
+}
+.btn-github:hover { background: rgba(29,158,117,0.06); }
+
 /* ── Responsive ── */
 @media (max-width: 700px) {
   .about-header {
