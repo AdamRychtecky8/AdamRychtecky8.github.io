@@ -484,8 +484,29 @@ section h3 {
 }
 .work-card:hover { transform: translateY(-2px); }
 .work-card .work-icon { font-size: 1.6rem; margin-bottom: 0.6rem; }
-.work-card h3 { font-size: 0.95rem; margin-bottom: 0.35rem; }
+.work-card h3 { font-size: 0.95rem; margin-bottom: 0.35rem; transition: color 0.2s ease; }
+.work-card:hover h3 { color: #1D9E75; }
 .work-card p { font-size: 0.85rem; color: var(--text-sec); }
+
+/* About page dividers */
+.about-divider {
+  width: 40px;
+  height: 1px;
+  background: rgba(29,158,117,0.3);
+  margin: 3rem auto;
+  display: block;
+}
+
+/* About page section labels */
+.about-section-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: #1D9E75;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: block;
+}
 
 /* ── Footer ── */
 footer {
