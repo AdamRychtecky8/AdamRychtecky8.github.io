@@ -84,9 +84,12 @@
           <!-- Modeling Perceptual Decisions: Humans vs. LLMs -->
           <div class="project-card fade-up" data-category="ml psychology">
             <h3>Modeling Perceptual Decisions: Humans vs. LLMs</h3>
-            <p>Compared how humans and large language models make decisions on identical visual stimuli using CatBoost, GAM, and SHAP analysis. Built as a PSTAT 231 final project using data from ongoing thesis research.</p>
-            <p style="font-size:0.8rem;color:var(--teal);margin-top:0.4rem;font-weight:500;">CatBoost AUC: 0.876 (LLM) &middot; 0.720 (Human)</p>
-            <div class="tags">
+            <p style="font-size:0.8rem;color:var(--text-sec);margin-bottom:0.75rem;">PSTAT 231 Final Project &mdash; class project using data from ongoing honors thesis research</p>
+            <p>The task was to predict each agent&rsquo;s actual decision (&ldquo;present&rdquo; or &ldquo;absent&rdquo;) &mdash; not whether the target was truly there. This distinction matters: agents respond to the sensory evidence they see, so modeling their behavior is a different problem from recovering ground truth. Data came from a 2AFC visual detection task where humans and LLMs (GPT-4o, Claude, Gemini) completed identical trials, allowing direct comparison of how each group integrates the same stimulus information.</p>
+            <p style="margin-top:0.6rem;">Two complementary models were fit on engineered evidence features (strength, noise, left&ndash;right difference, cue consistency). A GAM provided an interpretable nonlinear baseline &mdash; smooth per-feature effects showing how decision probability changes with evidence strength and trial difficulty. CatBoost was added to capture interactions the additive GAM cannot represent: how noise and evidence magnitude combine, how cue alignment interacts with agent identity, and threshold-like patterns in cue reliability.</p>
+            <p style="margin-top:0.6rem;">The sharpest finding from the SHAP dependence analysis was the noise feature. LLMs showed a steep, monotonic positive relationship &mdash; larger angular separation between the two lines reliably predicted a &ldquo;present&rdquo; response, as if treating trial clarity as a direct cue. Human SHAP values for noise stayed near zero with high variance, indicating far less systematic use of the same signal. Both groups used evidence strength and cue consistency in similar ways; noise was the clearest behavioral separator.</p>
+            <p style="font-size:0.8rem;color:var(--teal);margin-top:0.4rem;font-weight:500;">CatBoost AUC: 0.876 (LLM) &middot; 0.720 (Human) &mdash; accuracy: 80.0% (LLM) &middot; 67.7% (Human)</p>
+            <div class="tags" style="margin-top:0.9rem;">
               <span class="tag">R</span>
               <span class="tag">CatBoost</span>
               <span class="tag">GAM</span>
@@ -94,7 +97,7 @@
               <span class="tag">ggplot2</span>
             </div>
             <div class="card-actions">
-              <span class="card-link" style="opacity:0.45;cursor:default;">Private Repo</span>
+              <a href="Projects-metadata/231/231-AR-FinalVersion.pdf" class="card-link" target="_blank">Report</a>
             </div>
           </div>
 
