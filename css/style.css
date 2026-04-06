@@ -263,7 +263,7 @@ section h3 {
 }
 .project-card h3 { margin-bottom: 0.4rem; }
 .project-card p  { font-size: 0.875rem; color: var(--text-sec); }
-.project-card .tags { margin-top: auto; padding-top: 0.75rem; }
+.project-card p:last-of-type { flex: 1; }
 
 .project-card .card-actions {
   display: flex;
