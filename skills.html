@@ -20,7 +20,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="projects.html">Projects</a></li>
-        <li><a href="skills.html">Skills</a></li>
+        <li><a href="skills.html" class="active">Skills</a></li>
         <li><a href="resume.html">Resume</a></li>
       </ul>
     </div>
@@ -29,155 +29,321 @@
   <div class="page-content">
     <div class="container">
 
-      <!-- Technical Skills -->
+      <!-- Hero positioning statement -->
+      <section class="skills-hero-section">
+        <h1>Skills</h1>
+        <p class="skills-hero-statement">I build at the intersection of machine learning, statistical rigor, and human cognition. My work spans production AI systems, applied ML modeling, and research-grade experiments comparing how humans and language models make decisions under uncertainty.</p>
+      </section>
+
+      <!-- Core Competencies -->
       <section>
-        <h2>Technical Skills</h2>
+        <h2>Core Competencies</h2>
+        <div class="competency-grid">
 
-        <div class="skill-group">
-          <h3>Languages</h3>
-          <div class="skill-bar-row">
-            <label>Python</label>
-            <div class="skill-track"><div class="skill-fill" data-width="88"></div></div>
+          <!-- Cluster 1: Machine Learning & Modeling -->
+          <div class="card competency-card">
+            <h3 class="cluster-title">Machine Learning &amp; Modeling</h3>
+            <p class="cluster-descriptor">Supervised, unsupervised, and interpretable ML applied to real datasets</p>
+            <div class="skill-pills-list">
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill priority">Gradient Boosting — CatBoost</span>
+                <span class="evidence-anchor">Perceptual decision modeling, PSTAT 231</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill priority">Model Interpretability — SHAP</span>
+                <span class="evidence-anchor">Feature attribution on human vs. LLM behavior</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill priority">Generalized Additive Models</span>
+                <span class="evidence-anchor">Nonlinear response modeling, PSTAT 231</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">Logistic &amp; Multiple Linear Regression</span>
+                <span class="evidence-anchor">IMDb revenue forecasting; PSTAT 126</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">Poisson &amp; Zero-Inflated Negative Binomial Regression</span>
+                <span class="evidence-anchor">Olympic medal count modeling</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">K-Means Clustering</span>
+                <span class="evidence-anchor">Country segmentation by economic + athletic profile</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">Principal Component Analysis</span>
+                <span class="evidence-anchor">Dimensionality reduction, Olympic dataset</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">Box-Cox Transformation</span>
+                <span class="evidence-anchor">Variance stabilization, IMDb project</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">Time Series Forecasting</span>
+                <span class="evidence-anchor">UCSB coursework</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">Classification</span>
+                <span class="evidence-anchor">PSTAT 231; binary choice task analysis</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">NLP (foundational)</span>
+                <span class="evidence-anchor">UCSB coursework</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">Deep Learning (foundational)</span>
+                <span class="evidence-anchor">UCSB coursework</span>
+              </div>
+            </div>
           </div>
-          <div class="skill-bar-row">
-            <label>R</label>
-            <div class="skill-track"><div class="skill-fill" data-width="85"></div></div>
-          </div>
-          <div class="skill-bar-row">
-            <label>SQL</label>
-            <div class="skill-track"><div class="skill-fill" data-width="65"></div></div>
-          </div>
-          <div class="skill-bar-row">
-            <label>[LANGUAGE 4]</label>
-            <div class="skill-track"><div class="skill-fill" data-width="50"></div></div>
-          </div>
-        </div>
 
-        <div class="skill-group">
-          <h3>ML / AI</h3>
-          <div class="skill-bar-row">
-            <label>Regression / GLMs</label>
-            <div class="skill-track"><div class="skill-fill" data-width="90"></div></div>
+          <!-- Cluster 2: AI Systems & Engineering -->
+          <div class="card competency-card">
+            <h3 class="cluster-title">AI Systems &amp; Engineering</h3>
+            <p class="cluster-descriptor">Production AI applications, API integration, and full-stack deployment</p>
+            <div class="skill-pills-list">
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">Full-Stack AI App Development</span>
+                <span class="evidence-anchor">Dialed — solo-built, production, live</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">OpenAI API — TTS integration</span>
+                <span class="evidence-anchor">Dialed — real-time audio coaching feature</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">SHA-256 Audio Caching System</span>
+                <span class="evidence-anchor">Dialed — custom caching layer on OpenAI TTS output</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">PostgreSQL with Row-Level Security</span>
+                <span class="evidence-anchor">Dialed — Supabase/PostgreSQL, user data isolation</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">Next.js 16 + TypeScript (strict)</span>
+                <span class="evidence-anchor">Dialed — production frontend</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">Vercel + Cloudflare Pages deployment</span>
+                <span class="evidence-anchor">Dialed — live at dialed-web-hub.vercel.app</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">Git + GitHub</span>
+                <span class="evidence-anchor">All projects; version control throughout</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">AI-Assisted Development Workflows</span>
+                <span class="evidence-anchor">Claude, GitHub Copilot, GPT-4o — used across projects</span>
+              </div>
+            </div>
+            <div class="cluster-cta">
+              <a href="https://dialed-web-hub.vercel.app/#how-it-works" target="_blank" rel="noopener" class="btn-primary">View Live Demo ↗</a>
+            </div>
           </div>
-          <div class="skill-bar-row">
-            <label>Classification</label>
-            <div class="skill-track"><div class="skill-fill" data-width="80"></div></div>
-          </div>
-          <div class="skill-bar-row">
-            <label>Clustering / PCA</label>
-            <div class="skill-track"><div class="skill-fill" data-width="82"></div></div>
-          </div>
-          <div class="skill-bar-row">
-            <label>NLP</label>
-            <div class="skill-track"><div class="skill-fill" data-width="68"></div></div>
-          </div>
-          <div class="skill-bar-row">
-            <label>Deep Learning</label>
-            <div class="skill-track"><div class="skill-fill" data-width="60"></div></div>
-          </div>
-          <div class="skill-bar-row">
-            <label>Time Series</label>
-            <div class="skill-track"><div class="skill-fill" data-width="72"></div></div>
-          </div>
-        </div>
 
-        <div class="skill-group">
-          <h3>Tools &amp; Platforms</h3>
-          <div class="skill-bar-row">
-            <label>Git / GitHub</label>
-            <div class="skill-track"><div class="skill-fill" data-width="80"></div></div>
+          <!-- Cluster 3: Research & Statistical Rigor -->
+          <div class="card competency-card">
+            <h3 class="cluster-title">Research &amp; Statistical Rigor</h3>
+            <p class="cluster-descriptor">2+ years in a university vision research lab — experimental design, behavioral data analysis, and scientific methodology</p>
+            <div class="skill-pills-list">
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">Psychophysics Experiment Design</span>
+                <span class="evidence-anchor">VIU Lab, UCSB — 2+ years</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">2AFC Signal Detection Analysis</span>
+                <span class="evidence-anchor">Flexible Wisdom thesis — large-scale visual detection task</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">Human vs. LLM Behavioral Comparison</span>
+                <span class="evidence-anchor">Flexible Wisdom — ongoing honors thesis</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">Eye-Tracking Data Collection</span>
+                <span class="evidence-anchor">VIU Lab — gaze-contingent stimuli</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">Bayesian Inference</span>
+                <span class="evidence-anchor">PSTAT 115 — Bayesian Data Analysis</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">Hypothesis Testing &amp; Statistical Inference</span>
+                <span class="evidence-anchor">PSTAT 120A/B</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">Dataset QA &amp; Preprocessing</span>
+                <span class="evidence-anchor">VIU Lab — ML-ready dataset preparation</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">Systematic Literature Review</span>
+                <span class="evidence-anchor">PM2.5 &amp; Alzheimer's — WRIT W109ST</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">Scientific Writing</span>
+                <span class="evidence-anchor">Published-quality writing; lab reports; thesis</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">Survival Analysis</span>
+                <span class="evidence-anchor">PSTAT 175 — Kaplan-Meier, Cox regression</span>
+              </div>
+            </div>
           </div>
-          <div class="skill-bar-row">
-            <label>Jupyter / RStudio</label>
-            <div class="skill-track"><div class="skill-fill" data-width="88"></div></div>
+
+          <!-- Cluster 4: Human-AI Decision Systems -->
+          <div class="card competency-card competency-card--editorial">
+            <h3 class="cluster-title">Human-AI Decision Systems</h3>
+            <p class="cluster-descriptor">Research at the frontier of how humans and AI agents make decisions under uncertainty</p>
+            <p class="cluster-abstract">My honors thesis examines ensemble decision-making under correlated uncertainty — comparing human groups and LLM collectives on a large-scale perceptual task. This work sits at the intersection of cognitive science, AI evaluation, and multi-agent systems.</p>
+            <div class="skill-pills-list">
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">LLM Ensemble Behavior Research</span>
+                <span class="evidence-anchor">Flexible Wisdom thesis — ongoing</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">Multi-Agent Decision Theory</span>
+                <span class="evidence-anchor">Ensemble diversity vs. accuracy tradeoffs</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">Cognitive Bias in AI Systems</span>
+                <span class="evidence-anchor">Human vs. LLM correlation structure</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">Human-AI Comparative Methodology</span>
+                <span class="evidence-anchor">VIU Lab + Flexible Wisdom</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">Behavioral Data Modeling</span>
+                <span class="evidence-anchor">CatBoost + GAMs on perceptual decision datasets</span>
+              </div>
+              <div class="skill-pill-wrapper">
+                <span class="skill-pill">AI Evaluation &amp; Benchmarking</span>
+                <span class="evidence-anchor">Designing controlled tasks for LLM performance assessment</span>
+              </div>
+            </div>
+            <div class="cluster-cta">
+              <a href="https://github.com/AdamRychtecky8/Flexible-Wisdom" target="_blank" rel="noopener" class="btn-secondary">GitHub Repo ↗</a>
+            </div>
           </div>
-          <div class="skill-bar-row">
-            <label>Azure AI (Fundamentals)</label>
-            <div class="skill-track"><div class="skill-fill" data-width="55"></div></div>
-          </div>
-          <div class="skill-bar-row">
-            <label>[TOOL 4]</label>
-            <div class="skill-track"><div class="skill-fill" data-width="50"></div></div>
-          </div>
+
         </div>
       </section>
 
-      <!-- Courses & Certifications -->
+      <!-- Languages & Tools strip -->
+      <div class="lang-tools-strip">
+        <span class="lang-tools-label">Languages &amp; Tools</span>
+        <div class="lang-badges">
+          <span class="lang-badge">Python</span>
+          <span class="lang-badge">R</span>
+          <span class="lang-badge">SQL</span>
+          <span class="lang-badge">TypeScript</span>
+          <span class="lang-badge secondary">Next.js</span>
+          <span class="lang-badge secondary">PostgreSQL</span>
+          <span class="lang-badge secondary">Supabase</span>
+          <span class="lang-badge secondary">Git / GitHub</span>
+          <span class="lang-badge certified">Azure AI Fundamentals ✓</span>
+        </div>
+      </div>
+
+      <!-- Academic Foundation -->
       <section>
-        <h2>Courses &amp; Certifications</h2>
-        <div class="courses-grid">
+        <h2>Academic Foundation</h2>
+        <p class="section-subheading">Rigorous coursework in statistics, machine learning, and cognitive science at UCSB</p>
+        <div class="academic-grid">
 
-          <div class="course-card fade-up">
-            <div class="platform">UCSB</div>
-            <h3>PSTAT 120A/B — Probability &amp; Statistics</h3>
-            <p>Random variables, probability theory, sampling distributions, inference.</p>
-            <span style="font-size:0.78rem;color:var(--text-sec);">2023–2024</span>
+          <div class="academic-card">
+            <h3 class="course-name">PSTAT 231 — Statistical Machine Learning</h3>
+            <div class="skill-pills-list">
+              <span class="skill-pill sm">CatBoost</span>
+              <span class="skill-pill sm">GAMs</span>
+              <span class="skill-pill sm">SHAP</span>
+              <span class="skill-pill sm">Model Selection</span>
+              <span class="skill-pill sm">Interpretability</span>
+            </div>
           </div>
 
-          <div class="course-card fade-up">
-            <div class="platform">UCSB</div>
-            <h3>PSTAT 100 — Data Science Concepts &amp; Analysis</h3>
-            <p>Exploratory analysis, modeling, reproducible workflows. Final project: Olympic socioeconomics (ZINB + PCA).</p>
-            <span style="font-size:0.78rem;color:var(--text-sec);">Fall 2024</span>
+          <div class="academic-card">
+            <h3 class="course-name">PSTAT 126 — Regression Analysis</h3>
+            <div class="skill-pills-list">
+              <span class="skill-pill sm">Linear Regression</span>
+              <span class="skill-pill sm">Variable Selection</span>
+              <span class="skill-pill sm">Residual Diagnostics</span>
+            </div>
           </div>
 
-          <div class="course-card fade-up">
-            <div class="platform">UCSB</div>
-            <h3>PSTAT 126 — Regression Analysis</h3>
-            <p>Multiple linear regression, model selection, diagnostics, transformations. Final project: IMDb revenue prediction.</p>
-            <span style="font-size:0.78rem;color:var(--text-sec);">Winter 2025</span>
+          <div class="academic-card">
+            <h3 class="course-name">PSTAT 120A/B — Probability &amp; Statistics</h3>
+            <div class="skill-pills-list">
+              <span class="skill-pill sm">Probability Theory</span>
+              <span class="skill-pill sm">Inference</span>
+              <span class="skill-pill sm">Distributions</span>
+              <span class="skill-pill sm">Hypothesis Testing</span>
+            </div>
           </div>
 
-          <div class="course-card fade-up">
-            <div class="platform">UCSB</div>
-            <h3>PSTAT 160A/B — Stochastic Processes</h3>
-            <p>Markov chains, Poisson processes, Brownian motion, applications to modeling.</p>
-            <span style="font-size:0.78rem;color:var(--text-sec);">2024–2025</span>
+          <div class="academic-card">
+            <h3 class="course-name">PSTAT 115 — Bayesian Data Analysis</h3>
+            <div class="skill-pills-list">
+              <span class="skill-pill sm">Bayesian Inference</span>
+              <span class="skill-pill sm">Prior/Posterior</span>
+              <span class="skill-pill sm">MCMC</span>
+            </div>
           </div>
 
-          <div class="course-card fade-up">
-            <div class="platform">UCSB — Math</div>
-            <h3>MATH 4A — Linear Algebra</h3>
-            <p>Matrix algebra, eigenvalues/eigenvectors, linear transformations, diagonalization.</p>
-            <span style="font-size:0.78rem;color:var(--text-sec);">2023</span>
+          <div class="academic-card">
+            <h3 class="course-name">PSTAT 134 — Statistical Data Science</h3>
+            <div class="skill-pills-list">
+              <span class="skill-pill sm">Python</span>
+              <span class="skill-pill sm">Pandas</span>
+              <span class="skill-pill sm">Data Wrangling</span>
+              <span class="skill-pill sm">EDA</span>
+              <span class="skill-pill sm">Visualization</span>
+            </div>
           </div>
 
-          <div class="course-card fade-up">
-            <div class="platform">UCSB — CS</div>
-            <h3>CMPSC 8 / 9 — Intro &amp; Intermediate Python</h3>
-            <p>OOP, data structures (lists, trees, stacks, queues), algorithms, sorting &amp; search.</p>
-            <span style="font-size:0.78rem;color:var(--text-sec);">2022–2023</span>
+          <div class="academic-card">
+            <h3 class="course-name">PSTAT 175 — Survival Analysis</h3>
+            <div class="skill-pills-list">
+              <span class="skill-pill sm">Kaplan-Meier</span>
+              <span class="skill-pill sm">Cox Regression</span>
+              <span class="skill-pill sm">Time-to-Event Modeling</span>
+            </div>
           </div>
 
-          <div class="course-card fade-up">
-            <div class="platform">Microsoft</div>
-            <h3>Azure AI Fundamentals</h3>
-            <p>Core Azure AI/ML services, cognitive services, responsible AI principles.</p>
-            <span style="font-size:0.78rem;color:var(--text-sec);">[DATE]</span>
-            <a href="#" class="cert-link">[Certificate link]</a>
+          <div class="academic-card">
+            <h3 class="course-name">PBS (Psych &amp; Brain Sciences) Core</h3>
+            <div class="skill-pills-list">
+              <span class="skill-pill sm">Cognitive Science</span>
+              <span class="skill-pill sm">Perception</span>
+              <span class="skill-pill sm">Experimental Psychology</span>
+              <span class="skill-pill sm">Neuroscience</span>
+            </div>
           </div>
 
-          <div class="course-card fade-up">
-            <div class="platform">[PLATFORM]</div>
-            <h3>[COURSE NAME]</h3>
-            <p>[SKILLS LEARNED]</p>
-            <span style="font-size:0.78rem;color:var(--text-sec);">[DATE]</span>
-            <a href="#" class="cert-link">[Certificate link]</a>
+          <div class="academic-card">
+            <h3 class="course-name">WRIT W109ST — Science Writing</h3>
+            <div class="skill-pills-list">
+              <span class="skill-pill sm">Systematic Literature Review</span>
+              <span class="skill-pill sm">Scientific Communication</span>
+            </div>
           </div>
 
         </div>
       </section>
 
-      <!-- Currently Learning -->
-      <section style="padding-bottom:3rem;">
-        <h2>Currently Learning</h2>
-        <div class="card">
-          <p>[CURRENTLY LEARNING — add 2–3 things you are actively studying, building toward, or exploring right now. Examples: a new framework, a course in progress, a research area.]</p>
-          <ul style="margin-top:1rem;padding-left:1.25rem;color:var(--text-sec);font-size:0.9rem;">
-            <li>[TOPIC 1]</li>
-            <li>[TOPIC 2]</li>
-            <li>[TOPIC 3]</li>
-          </ul>
+      <!-- Currently Building Toward -->
+      <section class="building-section">
+        <h2>Currently Building Toward</h2>
+        <div class="building-strip">
+          <div class="building-item">
+            <span class="building-label">USC MS Applied Data Science</span>
+            <span class="building-sublabel">Graduate program — starting Fall 2026</span>
+          </div>
+          <div class="building-item">
+            <span class="building-label">Multi-Agent AI Systems</span>
+            <span class="building-sublabel">Extending thesis work into agentic frameworks</span>
+          </div>
+          <div class="building-item">
+            <span class="building-label">LLM Evaluation Methodology</span>
+            <span class="building-sublabel">How do we rigorously test model decision-making?</span>
+          </div>
         </div>
       </section>
 
@@ -190,14 +356,5 @@
 
   <script src="js/background.js"></script>
   <script src="js/nav.js"></script>
-  <script>
-    // Animate skill bars on load
-    window.addEventListener('load', () => {
-      document.querySelectorAll('.skill-fill').forEach(el => {
-        const w = el.dataset.width || 0;
-        el.style.width = w + '%';
-      });
-    });
-  </script>
 </body>
 </html>
