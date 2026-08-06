@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Adam Rychtecky</title>
+  <meta name="description" content="Notes and research journal from Adam Rychtecky — statistics, data science, and human-AI research." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/blog.css" />
+</head>
+<body>
+
+  <!-- Lite canvas -->
+  <canvas id="bg-canvas" data-lite></canvas>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <div class="container">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="personalblog.html">Blog</a></li>
+        <li><a href="resume.html">Resume</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-content">
+    <div class="container">
+
+      <!-- Index view: list of posts (shown when no ?post= param) -->
+      <section id="blog-index">
+        <h2>Blog</h2>
+        <p style="color:var(--text-sec);max-width:640px;margin-bottom:2rem;">Notes from the research and projects above — what I&rsquo;m working through, what broke, and what I learned along the way.</p>
+
+        <div id="blog-list" class="blog-list">
+          <!-- Post cards injected by js/blog.js -->
+        </div>
+      </section>
+
+      <!-- Single-post view (shown when ?post=<slug> is present) -->
+      <section id="blog-post" hidden>
+        <a href="personalblog.html" class="back-link">&larr; Back to Blog</a>
+
+        <div id="blog-post-body">
+          <!-- Post header + rendered markdown, or a not-found/error message, injected by js/blog.js -->
+        </div>
+      </section>
+
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Adam Rychtecky &mdash; <a href="https://github.com/AdamRychtecky8" style="color:var(--teal);text-decoration:none;">GitHub</a> &middot; <a href="https://www.linkedin.com/in/adam-rychtecky-4a360130a" style="color:var(--teal);text-decoration:none;">LinkedIn</a></p>
+    </footer>
+  </div>
+
+  <script src="js/background.js"></script>
+  <script src="js/nav.js"></script>
+  <!-- marked: minimal Markdown renderer, loaded from CDN. js/blog.js falls back to
+       plain text if this fails to load (e.g. offline, CDN blocked). -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="js/blog.js"></script>
+</body>
+</html>

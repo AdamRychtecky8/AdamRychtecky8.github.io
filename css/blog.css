@@ -1,0 +1,171 @@
+/* ── Blog page ── */
+/* Built on the site's existing tokens from css/style.css:
+   --bg #f7f5ee · --text #1a1a18 · --text-sec #5a5a56 ·
+   --teal #1D9E75 · --blue #378ADD · --card-bg #fff · --card-bdr rgba(29,158,117,.15)
+   Only blog-specific classes live here — shared chrome (nav, footer, cards, tags,
+   buttons, .placeholder) stays in style.css and is reused as-is. */
+
+/* ── Index: post list ── */
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+.blog-card {
+  background: var(--card-bg);
+  border: 0.5px solid var(--card-bdr);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.blog-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(29,158,117,0.08);
+}
+
+.blog-card-date {
+  font-size: 0.78rem;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.blog-card h3 {
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.blog-card p {
+  font-size: 0.875rem;
+  color: var(--text-sec);
+  margin-bottom: 0.75rem;
+}
+
+/* ── Post view ── */
+.back-link {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--teal);
+  text-decoration: none;
+  margin: 2rem 0 1.5rem;
+}
+.back-link:hover { text-decoration: underline; }
+
+.post-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 0.5px solid var(--card-bdr);
+}
+
+.post-title {
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.6rem;
+  color: var(--text);
+}
+
+.post-meta {
+  font-size: 0.85rem;
+  color: var(--text-sec);
+}
+
+.post-tags {
+  margin-top: 0.75rem;
+}
+
+/* Rendered Markdown typography */
+.post-content {
+  font-size: 0.975rem;
+  color: var(--text);
+  line-height: 1.75;
+  max-width: 720px;
+  margin-bottom: 4rem;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3 {
+  font-weight: 500;
+  margin: 2rem 0 1rem;
+  color: var(--text);
+}
+.post-content h1 { font-size: 1.5rem; }
+.post-content h2 { font-size: 1.25rem; }
+.post-content h3 { font-size: 1.05rem; }
+.post-content h1:first-child,
+.post-content h2:first-child,
+.post-content h3:first-child { margin-top: 0; }
+
+.post-content p { margin-bottom: 1.1rem; }
+
+.post-content a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-decoration-color: rgba(29,158,117,0.35);
+}
+.post-content a:hover { text-decoration-color: var(--teal); }
+
+.post-content ul,
+.post-content ol {
+  margin: 0 0 1.1rem 1.4rem;
+}
+.post-content li { margin-bottom: 0.4rem; }
+
+.post-content blockquote {
+  border-left: 2px solid var(--teal);
+  padding-left: 1rem;
+  margin: 0 0 1.1rem;
+  color: var(--text-sec);
+  font-style: italic;
+}
+
+.post-content code {
+  background: rgba(29,158,117,0.08);
+  color: var(--teal);
+  border-radius: 4px;
+  padding: 0.15em 0.4em;
+  font-size: 0.85em;
+}
+
+.post-content pre {
+  background: var(--card-bg);
+  border: 0.5px solid var(--card-bdr);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  margin-bottom: 1.1rem;
+}
+.post-content pre code {
+  background: none;
+  color: var(--text);
+  padding: 0;
+  font-size: 0.85rem;
+}
+
+.post-content hr {
+  border: none;
+  border-top: 0.5px solid var(--card-bdr);
+  margin: 2rem 0;
+}
+
+.post-content img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1.1rem;
+}
+
+/* Plain-text fallback when marked fails to load */
+.post-content.plain-fallback {
+  white-space: pre-wrap;
+  font-family: inherit;
+}
