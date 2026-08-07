@@ -448,15 +448,15 @@ section h3 {
 /* ── About page ── */
 .about-header {
   display: grid;
-  grid-template-columns: 130px 1fr;
+  grid-template-columns: 140px 1fr;
   gap: 2.5rem;
-  align-items: start;
+  align-items: center;
   margin-bottom: 3rem;
 }
 
 .profile-photo-box {
-  width: 130px;
-  height: 130px;
+  width: 140px;
+  height: 200px;
   border-radius: 16px;
   background: rgba(29,158,117,0.08);
   border: 0.5px solid var(--card-bdr);
@@ -468,15 +468,13 @@ section h3 {
   text-align: center;
   overflow: hidden;
   flex-shrink: 0;
-  position: relative;
-  top: 14px;
-  left: -14px;
 }
 
 .profile-photo-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 25%;
   border-radius: 16px;
   display: block;
 }
