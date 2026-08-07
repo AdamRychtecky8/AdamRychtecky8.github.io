@@ -466,6 +466,15 @@ section h3 {
   color: var(--text-sec);
   font-size: 0.82rem;
   text-align: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.profile-photo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .bio p { margin-bottom: 1rem; font-size: 0.95rem; color: var(--text); }
