@@ -65,3 +65,10 @@ No build step required. Either:
 - **PDF asset naming is inconsistent**: `Graduate_School_resume.pdf`, `AR25_Transcript.pdf`, `PSTAT100_finalproject.pdf`, `PSTAT126_FinalReport.pdf`, `ParticulateMatterReview.pdf`, `court-vision-report.pdf` — no consistent naming convention.
 - **No image assets** — `logo`/`avatar` fields are intentionally left blank in `_config.yml` (moot, but the convention of "no images" carries over: none of the live pages currently use photos/screenshots either, aside from inline SVG icons).
 - **remote_theme in `_config.yml`** pins `mmistakes/minimal-mistakes@4.24.0`, but again this is unused dead config since Jekyll never builds.
+
+{
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  }
+}
