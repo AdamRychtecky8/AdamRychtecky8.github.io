@@ -5,49 +5,205 @@
    Only blog-specific classes live here — shared chrome (nav, footer, cards, tags,
    buttons, .placeholder) stays in style.css and is reused as-is. */
 
-/* ── Index: post list ── */
-.blog-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  margin-bottom: 3rem;
+:root {
+  /* Blog-only type token. Dates and year rules are set in mono with tabular
+     figures — it's what makes the index read as a log rather than a feed,
+     and it needs no new font load. */
+  --mono: ui-monospace, Menlo, monospace;
 }
 
-.blog-card {
-  background: var(--card-bg);
-  border: 0.5px solid var(--card-bdr);
-  border-radius: 12px;
-  padding: 1.5rem;
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* ── Topic hues ────────────────────────────────────────────────────────
+   Each of the four topics owns a hue. Any element carrying data-hue — a
+   filter button, a tag chip, a log entry — picks up the whole ramp, so every
+   rule below is written once against --hue-* instead of once per topic.
+   The warm hues carry a darker --hue-ink so small text stays legible on --bg. */
+[data-hue="research"] {
+  --hue:      #1D9E75;
+  --hue-ink:  #1D9E75;
+  --hue-wash: rgba(29,158,117,0.05);
+  --hue-soft: rgba(29,158,117,0.07);
+  --hue-tag:  rgba(29,158,117,0.10);
+  --hue-mid:  rgba(29,158,117,0.16);
+  --hue-rail: rgba(29,158,117,0.28);
+  --hue-bdr:  rgba(29,158,117,0.30);
 }
-.blog-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(29,158,117,0.08);
+[data-hue="ml-notes"] {
+  --hue:      #378ADD;
+  --hue-ink:  #378ADD;
+  --hue-wash: rgba(55,138,221,0.05);
+  --hue-soft: rgba(55,138,221,0.07);
+  --hue-tag:  rgba(55,138,221,0.10);
+  --hue-mid:  rgba(55,138,221,0.16);
+  --hue-rail: rgba(55,138,221,0.28);
+  --hue-bdr:  rgba(55,138,221,0.30);
+}
+[data-hue="build-log"] {
+  --hue:      oklch(0.62 0.12 62);
+  --hue-ink:  oklch(0.50 0.12 62);
+  --hue-wash: oklch(0.62 0.12 62 / 0.05);
+  --hue-soft: oklch(0.62 0.12 62 / 0.07);
+  --hue-tag:  oklch(0.62 0.12 62 / 0.12);
+  --hue-mid:  oklch(0.62 0.12 62 / 0.16);
+  --hue-rail: oklch(0.62 0.12 62 / 0.28);
+  --hue-bdr:  oklch(0.62 0.12 62 / 0.30);
+}
+[data-hue="career"] {
+  --hue:      oklch(0.62 0.12 20);
+  --hue-ink:  oklch(0.50 0.12 20);
+  --hue-wash: oklch(0.62 0.12 20 / 0.05);
+  --hue-soft: oklch(0.62 0.12 20 / 0.07);
+  --hue-tag:  oklch(0.62 0.12 20 / 0.12);
+  --hue-mid:  oklch(0.62 0.12 20 / 0.16);
+  --hue-rail: oklch(0.62 0.12 20 / 0.28);
+  --hue-bdr:  oklch(0.62 0.12 20 / 0.30);
 }
 
-.blog-card-date {
-  font-size: 0.78rem;
-  color: var(--teal);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 0.4rem;
-  display: block;
+/* Hue-aware tag chip — inherits size/shape from .tag in style.css. */
+.tag[data-hue] {
+  background: var(--hue-tag);
+  color: var(--hue-ink);
 }
 
-.blog-card h3 {
-  font-size: 1.05rem;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
+/* ── Filter bar ────────────────────────────────────────────────────────
+   Same markup contract as projects.html (.filter-bar / .filter-btn / .active),
+   re-skinned so each topic button previews its own hue. */
+.blog-filter {
+  margin-bottom: 2.25rem;
+}
+
+.blog-filter .filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.blog-filter .filter-btn[data-hue] {
+  background: var(--hue-soft);
+  border-color: var(--hue-bdr);
+  color: var(--text-sec);
+}
+.blog-filter .filter-btn[data-hue]:hover,
+.blog-filter .filter-btn[data-hue].active {
+  background: var(--hue-mid);
+  border-color: var(--hue);
   color: var(--text);
 }
 
-.blog-card p {
-  font-size: 0.875rem;
+.filter-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--hue);
+}
+
+/* "All" is the one button with no topic, so it reads in ink rather than a hue. */
+.blog-filter .filter-btn[data-tag="all"] {
+  background: transparent;
+  border-color: rgba(0,0,0,0.18);
   color: var(--text-sec);
-  margin-bottom: 0.75rem;
+}
+.blog-filter .filter-btn[data-tag="all"]:hover,
+.blog-filter .filter-btn[data-tag="all"].active {
+  background: var(--text);
+  border-color: var(--text);
+  color: #fff;
+  font-weight: 500;
+}
+
+/* ── Index: dated log ── */
+.blog-list {
+  margin-bottom: 3rem;
+}
+
+/* A year group is a <section>, so it inherits the site-wide `section { padding: 5rem 0 }`
+   from style.css — the log needs the groups flush against their year rules instead. */
+.log-group { padding: 0; }
+.log-group + .log-group {
+  margin-top: 2.25rem;
+}
+
+.log-year {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.35rem;
+}
+.log-year-num {
+  font: 500 11px/1 var(--mono);
+  letter-spacing: 0.1em;
+  color: var(--teal);
+}
+.log-year-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(29,158,117,0.35), rgba(29,158,117,0.06));
+}
+.log-year-count {
+  font-size: 11px;
+  line-height: 1;
+  color: var(--text-sec);
+}
+
+.log-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.log-entry {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 1.75rem;
+  padding: 1.4rem 0.75rem 1.4rem 0.9rem;
+  border-bottom: 0.5px solid var(--card-bdr);
+  border-left: 2px solid var(--hue-rail, var(--card-bdr));
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.18s ease, background 0.18s ease;
+}
+.log-entry:hover {
+  border-left-color: var(--hue, var(--teal));
+  background: var(--hue-wash, rgba(29,158,117,0.05));
+}
+.log-entry.hidden { display: none; }
+
+.log-date {
+  font: 400 12px/1.5 var(--mono);
+  color: var(--text-sec);
+  font-variant-numeric: tabular-nums;
+}
+
+.log-body h3 {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.35rem;
+}
+.log-body p {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--text-sec);
+  margin-bottom: 0.7rem;
+  max-width: 640px;
+}
+.log-body .tags { margin-top: 0; }
+
+/* ── Reading progress (post view only) ── */
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(29,158,117,0.12);
+  z-index: 101; /* above nav.site-nav, which sits at 100 */
+}
+#reading-progress-fill {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--teal);
 }
 
 /* ── Post view ── */
@@ -64,24 +220,35 @@
   margin-bottom: 2rem;
   padding-bottom: 1.5rem;
   border-bottom: 0.5px solid var(--card-bdr);
+  max-width: 720px;
 }
 
 .post-title {
   font-size: clamp(1.6rem, 4vw, 2.1rem);
   font-weight: 500;
   letter-spacing: -0.01em;
-  margin-bottom: 0.6rem;
+  line-height: 1.25;
+  margin-bottom: 0.7rem;
   color: var(--text);
 }
 
 .post-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
   font-size: 0.85rem;
   color: var(--text-sec);
 }
-
-.post-tags {
-  margin-top: 0.75rem;
+.post-date {
+  font: 400 12.5px var(--mono);
+  font-variant-numeric: tabular-nums;
 }
+.meta-sep { color: rgba(29,158,117,0.5); }
+
+/* Read time is counted from the fetched Markdown, so both it and its
+   separator stay hidden on the fetch-failure path rather than showing 0. */
+.post-tags { margin-top: 0; }
 
 /* Rendered Markdown typography */
 .post-content {
@@ -89,7 +256,6 @@
   color: var(--text);
   line-height: 1.75;
   max-width: 720px;
-  margin-bottom: 4rem;
 }
 
 .post-content h1,
@@ -135,6 +301,7 @@
   border-radius: 4px;
   padding: 0.15em 0.4em;
   font-size: 0.85em;
+  font-family: var(--mono);
 }
 
 .post-content pre {
@@ -150,6 +317,7 @@
   color: var(--text);
   padding: 0;
   font-size: 0.85rem;
+  line-height: 1.6;
 }
 
 .post-content hr {
@@ -168,4 +336,75 @@
 .post-content.plain-fallback {
   white-space: pre-wrap;
   font-family: inherit;
+}
+
+/* ── Prev / next ── */
+.post-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  max-width: 720px;
+  margin: 3rem 0 4rem;
+  padding-top: 1.75rem;
+  border-top: 0.5px solid var(--card-bdr);
+}
+
+.post-nav-link {
+  display: block;
+  padding: 1rem 1.25rem;
+  border: 0.5px solid var(--card-bdr);
+  border-radius: 12px;
+  background: var(--card-bg);
+  text-decoration: none;
+  transition: border-color 0.18s ease, transform 0.18s ease;
+}
+.post-nav-link.next { text-align: right; }
+.post-nav-link:not(.disabled):hover {
+  border-color: rgba(29,158,117,0.5);
+  transform: translateY(-2px);
+}
+
+.post-nav-label {
+  display: block;
+  font: 400 11px/1 var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.45rem;
+}
+.post-nav-title {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.45;
+}
+
+/* Ends of the list keep the card, muted — not a hidden element. */
+.post-nav-link.disabled .post-nav-label,
+.post-nav-link.disabled .post-nav-title {
+  color: var(--text-sec);
+  font-weight: 400;
+}
+
+/* ── Mobile ── */
+@media (max-width: 700px) {
+  .blog-filter {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.35rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .blog-filter::-webkit-scrollbar { display: none; }
+
+  .log-entry {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+
+  .post-nav {
+    grid-template-columns: 1fr;
+  }
+  .post-nav-link.next { text-align: left; }
 }

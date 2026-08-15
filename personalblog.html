@@ -14,6 +14,9 @@
   <!-- Lite canvas -->
   <canvas id="bg-canvas" data-lite></canvas>
 
+  <!-- Reading progress — unhidden and driven by js/blog.js in the post view only -->
+  <div id="reading-progress" hidden><span id="reading-progress-fill"></span></div>
+
   <!-- Navigation -->
   <nav class="site-nav">
     <div class="container">
@@ -36,9 +39,21 @@
         <h2>Blog</h2>
         <p style="color:var(--text-sec);max-width:640px;margin-bottom:2rem;">Notes from the research and projects above — what I&rsquo;m working through, what broke, and what I learned along the way.</p>
 
-        <div id="blog-list" class="blog-list">
-          <!-- Post cards injected by js/blog.js -->
+        <!-- Static filter bar. data-tag values must match the tags used in the
+             POSTS manifest; data-hue must match TAG_HUES in js/blog.js. -->
+        <div class="filter-bar blog-filter">
+          <button class="filter-btn active" data-tag="all">All</button>
+          <button class="filter-btn" data-tag="Research" data-hue="research"><span class="filter-dot"></span>Research</button>
+          <button class="filter-btn" data-tag="Build Log" data-hue="build-log"><span class="filter-dot"></span>Build Log</button>
+          <button class="filter-btn" data-tag="ML Notes" data-hue="ml-notes"><span class="filter-dot"></span>ML Notes</button>
+          <button class="filter-btn" data-tag="Career" data-hue="career"><span class="filter-dot"></span>Career</button>
         </div>
+
+        <div id="blog-list" class="blog-list">
+          <!-- Year groups + log entries injected by js/blog.js -->
+        </div>
+
+        <p id="blog-empty" class="placeholder" hidden>No posts under that topic yet — try another filter.</p>
       </section>
 
       <!-- Single-post view (shown when ?post=<slug> is present) -->
