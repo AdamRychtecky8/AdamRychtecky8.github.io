@@ -1,0 +1,23 @@
+# Keep binary assets byte-exact.
+#
+# This repo is committed from Windows with core.autocrlf=true, which makes Git
+# treat unrecognized files as text and rewrite their line endings on commit and
+# checkout. For a PDF or an image that silently corrupts the file. Marking them
+# binary turns that off.
+*.pdf   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.ico   binary
+*.woff  binary
+*.woff2 binary
+
+# Web sources are text; normalize to LF in the repo regardless of platform.
+*.html  text eol=lf
+*.css   text eol=lf
+*.js    text eol=lf
+*.md    text eol=lf
+*.yml   text eol=lf
+*.json  text eol=lf
