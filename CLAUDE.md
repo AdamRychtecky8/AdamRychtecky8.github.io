@@ -158,7 +158,9 @@ The filter logic is a **~20-line inline `<script>` at the bottom of the page** (
 
 **Card anatomy:** optional "In Progress" pill (inline-styled blue) → `<h3>` title → optional small gray subtitle line (role/course context) → description paragraph → `.tags` of `.tag` spans (tech stack) → `.card-actions` with `.card-link` anchors (repo / report / live site).
 
-**Current cards, in order:** Court-Vision · When Human and AI Crowds Agree Too Much · Modeling Perceptual Decisions: Humans vs. LLMs · Dialed · Wavelength · PM2.5 & Alzheimer's Review · Olympics (Gold, Growth, and Glory) · IMDb Revenue · plus a ninth **"Building"** stub card ("Whatever may come next in my building process") with an empty `.tag` span and two empty `href="#"` links. Several links are unfilled — see [§10](#10-known-issues-placeholders--fragile-spots).
+**Current cards, in order:** Court-Vision · When Human and AI Crowds Agree Too Much · Modeling Perceptual Decisions: Humans vs. LLMs · Dialed · Wavelength · PM2.5 & Alzheimer's Review · Olympics (Gold, Growth, and Glory) · IMDb Revenue · plus a ninth **"Building"** stub card ("Whatever may come next in my building process").
+
+Two cards deliberately have **no `.card-actions` block at all**: **Wavelength** (in progress — no public repo or deployment yet) and the **"Building"** stub. That's intentional, not an omission: an empty `.card-link` renders as an invisible click target, so the block is left out entirely until there's a real URL. Add it back when there is one.
 
 ### 5.4 [skills.html](skills.html) — Skills
 
@@ -357,11 +359,11 @@ python -m http.server 8000
 
 ## 10. Known issues, placeholders & fragile spots
 
-### Broken or unfilled links (user-facing, live right now)
-- [projects.html](projects.html) — **Wavelength** card has literal placeholder hrefs: `[WAVELENGTH GITHUB URL]` and `[WAVELENGTH DEMO URL]`.
-- [projects.html](projects.html) — **"When Human and AI Crowds Agree Too Much"** links `assets/ai-crowds-report.pdf`, **which does not exist** in the repo → 404.
-- [projects.html](projects.html) — **"Modeling Perceptual Decisions"** links `Projects-metadata/231/231-AR-FinalVersion.pdf`; **there is no `Projects-metadata/` directory** in the repo → 404.
-- [projects.html](projects.html) — the ninth **"Building"** stub card renders with an empty `.tag` span and two empty `href="#"` links (they show as invisible click targets).
+### Link integrity
+
+**As of the last audit, every internal link on every page resolves, and no placeholder hrefs remain.** To re-check after edits, extract every `href`/`src` from the HTML files and test each non-external one against the filesystem — three separate 404s had accumulated because nothing was verifying this.
+
+External links all resolve too. Note that **LinkedIn returns HTTP 999 to automated checks** — that is their bot-blocking response, not a broken link. Don't "fix" it.
 
 ### Structural fragility
 - **Nav duplicated across six files**; **footer duplicated across five** (about.html has none) with a hardcoded `© 2026`; **contact block duplicated across two**. No includes, so these drift silently.
@@ -375,13 +377,16 @@ python -m http.server 8000
 - **`.fade-up` fires on page load, not on scroll** — below-fold cards have finished animating before they're seen.
 
 ### Asset hygiene
-- **PDF naming is inconsistent:** `AdamRychtecky-Resume.pdf`, `AR25_Transcript.pdf`, `FinalTranscript - AdamRychtecky.pdf` (space in the filename, URL-encoded as `%20` in the link), `PSTAT100_finalproject.pdf`, `PSTAT126_FinalReport.pdf`, `ParticulateMatterReview.pdf`, `court-vision-report.pdf`.
+- **PDF naming is inconsistent:** `AdamRychtecky-Resume.pdf`, `AR25_Transcript.pdf`, `FinalTranscript - AdamRychtecky.pdf` (space in the filename, URL-encoded as `%20` in the link), `PSTAT100_finalproject.pdf`, `PSTAT126_FinalReport.pdf`, `PSTAT231_FinalReport.pdf`, `ParticulateMatterReview.pdf`, `ai-crowds-report.pdf`, `court-vision-report.pdf`. Course reports follow `PSTAT<N>_FinalReport.pdf`; everything else is ad hoc.
 - **Unreferenced asset:** `AR25_Transcript.pdf` (superseded by `FinalTranscript - AdamRychtecky.pdf`, which is the one actually linked).
+- **`PSTAT231_FinalReport.pdf` is 4.8 MB** — by far the largest file served, roughly 4× the next biggest (`court-vision-report.pdf`, 1.2 MB). It's image-heavy plot output. Worth recompressing if page weight ever matters.
+- **Report PDFs are copied in by hand** from wherever they were authored (`ai-crowds-report.pdf` comes from `Flexible-Wisdom/reports/REPORT.pdf`). Nothing syncs them, so a regenerated report has to be re-copied here manually.
 
 ### Resolved (was an issue, now fixed — don't re-report)
 - **Backslashes in the resume PDF paths.** [resume.html](resume.html) referenced the PDF as `assets\AdamRychtecky-Resume.pdf` in both the `<iframe src>` and the download `<a href>`. That resolves locally on Windows but 404s on GitHub Pages, which serves from Linux where `\` is a literal filename character, not a separator. Both are now `assets/…`. **Watch for this whenever a path is added from a Windows editor** — it is silent locally and only breaks in production.
 - The graduate program used to be named inconsistently (skills.html said "USC MS Applied Data Science" while every other page said UW). **All pages now say UW.**
 - The `[PROJECT NAME]` / `[ONE LINE DESCRIPTION]` placeholder card was replaced by the "Building" stub, and the `[DESCRIPTION]` / `[TRANSCRIPT LINK]` placeholders in the resume UW timeline entry were filled in.
+- **Three 404s in [projects.html](projects.html)**, all now fixed: `assets/ai-crowds-report.pdf` was missing (added from `Flexible-Wisdom/reports/REPORT.pdf`); `Projects-metadata/231/231-AR-FinalVersion.pdf` pointed at a directory that never existed in the repo (the file is now `assets/PSTAT231_FinalReport.pdf`); and the Wavelength card's `[WAVELENGTH GITHUB URL]` / `[WAVELENGTH DEMO URL]` placeholders were removed along with its `.card-actions` block.
 
 ---
 
