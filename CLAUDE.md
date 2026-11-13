@@ -140,7 +140,7 @@ The `.contact-section` block — label, "Get in Touch", divider, mailto, and Lin
 |---|---|
 | Hero | Name, uppercase teal discipline line ("Data Science · Machine Learning · Human-AI Systems"), italic status line ("M.S. Data Science student at the University of Washington. Seeking a Summer 2027 internship."), then two buttons: `.btn-primary` → Projects, `.btn-secondary` → About. Text is inline-styled, not class-driven. |
 | Highlights | Three `.stat-card`s in `.stats-grid` — big `.stat-num` ("2+", "UW", "UCSB") over a `.stat-label`. |
-| What I'm working on | Three `.card`s — Honors Thesis (completed, past tense), Dialed App, Court-Vision. Thesis and Court-Vision each end in a `.card-link` "See the project" → projects.html, wrapped in a `<p style="margin-top:1rem;">` because `.card-actions` is only styled inside `.project-card`. |
+| What I'm working on | Three `.card`s, in order: UW MS Data Science (Autumn 2026 coursework: DATA 511, DATA 556, industry seminar) · Doom Viz (team project, in progress, December 2026) · Knowing When You're Right (Confidence Database pipeline; first calibration dashboard planned early 2027). Title + one paragraph each, no links. Note `.card-actions` is only styled inside `.project-card`, so a link here needs its own spacing. |
 | Get in Touch | Shared contact block ([§4.4](#44-contact-section)). |
 
 Static — no page-specific JS beyond `background.js` + `nav.js`.
@@ -159,20 +159,18 @@ The filter logic is a **~20-line inline `<script>` at the bottom of the page** (
 
 **Card anatomy:** optional "In Progress" pill (inline-styled blue) → `<h3>` title → optional small gray subtitle line (role/course context) → description paragraph → `.tags` of `.tag` spans (tech stack) → `.card-actions` with `.card-link` anchors (repo / report / live site).
 
-**Current cards, in order:** Court-Vision · When Human and AI Crowds Agree Too Much · Modeling Perceptual Decisions: Humans vs. LLMs (subtitle: "Graduate-level statistical ML, built on honors thesis data") · Dialed · Wavelength · PM2.5 & Alzheimer's Review · Olympics (Gold, Growth, and Glory) · IMDb Revenue · plus a ninth **"Building"** stub card ("Whatever may come next in my building process").
+**Current cards, in order:** Court-Vision · Golden Standard: Check a Chart Before You Present It (`data`; teal-filled "Live Demo" button styled like Dialed's "Live Site", plus "View Repo") · When Human and AI Crowds Agree Too Much · Modeling Perceptual Decisions: Humans vs. LLMs (subtitle: "Graduate-level statistical ML, built on honors thesis data") · Dialed · Wavelength · PM2.5 & Alzheimer's Review · Olympics (Gold, Growth, and Glory) · IMDb Revenue. Nine cards; the old "Building" stub is gone.
 
-**Pending:** the "Building" stub is to be replaced by a **Golden Analytics** card placed **first** in the grid. Not added yet because the project details (role, data, method, result, links) still need to come from Adam.
-
-Two cards deliberately have **no `.card-actions` block at all**: **Wavelength** (in progress — no public repo or deployment yet) and the **"Building"** stub. That's intentional, not an omission: an empty `.card-link` renders as an invisible click target, so the block is left out entirely until there's a real URL. Add it back when there is one.
+One card deliberately has **no `.card-actions` block at all**: **Wavelength** (in progress — no public repo or deployment yet). That's intentional, not an omission: an empty `.card-link` renders as an invisible click target, so the block is left out entirely until there's a real URL. Add it back when there is one.
 
 ### 5.4 [resume.html](resume.html) — Resume
 
-1. **Embedded PDF** — an `<iframe src="assets/AdamRychtecky-Resume.pdf" height="900px">` in an inline-styled card. Browser-dependent: some mobile browsers won't render a PDF in an iframe, which is why the download box below matters.
+1. **Embedded PDF** — an `<iframe src="assets/Adam-Rychtecky-Data-Science.pdf" height="900px">` in an inline-styled card. Browser-dependent: some mobile browsers won't render a PDF in an iframe, which is why the download box below matters.
 2. **Download box** — `.resume-download-box` with a `.btn-primary[download]` pointing at the same PDF.
 3. **Education timeline** — `.timeline` of `.timeline-item`s (`.timeline-date` + `.timeline-body` with `<h3>`, `.org`, `<ul>`). UW M.S. Data Science (2026–2028) and UCSB B.S. ×2 (Sept 2022–June 2026, links `assets/FinalTranscript%20-%20AdamRychtecky.pdf`).
 4. **Experience timeline** — same markup. UFCW Trust IT Infrastructure intern (June–Sept 2026) · VIU Lab Executive Research Assistant (Jan 2024–Apr 2026) · UFCW Trust IT intern (July–Aug 2024).
 
-Only `AdamRychtecky-Resume.pdf` and `FinalTranscript - AdamRychtecky.pdf` are linked from this page; `AR25_Transcript.pdf` sits in [assets/](assets/) unreferenced.
+Only `Adam-Rychtecky-Data-Science.pdf` and `FinalTranscript - AdamRychtecky.pdf` are linked from this page. `AR25_Transcript.pdf` and the previous resume, `AdamRychtecky-Resume.pdf`, sit in [assets/](assets/) unreferenced.
 
 ### 5.5 [personalblog.html](personalblog.html) — Blog
 
@@ -272,7 +270,7 @@ Empty manifest → the list renders "No posts yet — check back soon."
 3. Commit both files. It sorts into the index and is live at `personalblog.html?post=<slug>`. No read-time field needed — it's computed.
 
 ### Add a project card
-Copy an existing `.project-card` block in [projects.html](projects.html). Set `data-category` to one or more of `ml psychology data other` (space-separated). Fill title, optional subtitle line, description, `.tag` spans, and `.card-link` anchors. Replace the "Building" stub card rather than adding a tenth if it's still there.
+Copy an existing `.project-card` block in [projects.html](projects.html). Set `data-category` to one or more of `ml psychology data other` (space-separated). Fill title, optional subtitle line, description, `.tag` spans, and `.card-link` anchors.
 
 ### Swap the resume PDF
 Drop the new file in [assets/](assets/) and update **both** references in [resume.html](resume.html) — the `<iframe src>` and the download `<a href>`. Use a **forward slash** (`assets/Name.pdf`). Same filename = zero edits.
@@ -351,7 +349,7 @@ External links all resolve too. Note that **LinkedIn returns HTTP 999 to automat
 - **`.fade-up` fires on page load, not on scroll** — below-fold cards have finished animating before they're seen.
 
 ### Asset hygiene
-- **PDF naming is inconsistent:** `AdamRychtecky-Resume.pdf`, `AR25_Transcript.pdf`, `FinalTranscript - AdamRychtecky.pdf` (space in the filename, URL-encoded as `%20` in the link), `PSTAT100_finalproject.pdf`, `PSTAT126_FinalReport.pdf`, `PSTAT231_FinalReport.pdf`, `ParticulateMatterReview.pdf`, `ai-crowds-report.pdf`, `court-vision-report.pdf`. Course reports follow `PSTAT<N>_FinalReport.pdf`; everything else is ad hoc.
+- **PDF naming is inconsistent:** `Adam-Rychtecky-Data-Science.pdf` (resume), `AdamRychtecky-Resume.pdf` (old resume, unreferenced), `AR25_Transcript.pdf`, `FinalTranscript - AdamRychtecky.pdf` (space in the filename, URL-encoded as `%20` in the link), `PSTAT100_finalproject.pdf`, `PSTAT126_FinalReport.pdf`, `PSTAT231_FinalReport.pdf`, `ParticulateMatterReview.pdf`, `ai-crowds-report.pdf`, `court-vision-report.pdf`. Course reports follow `PSTAT<N>_FinalReport.pdf`; everything else is ad hoc.
 - **Unreferenced asset:** `AR25_Transcript.pdf` (superseded by `FinalTranscript - AdamRychtecky.pdf`, which is the one actually linked).
 - **`PSTAT231_FinalReport.pdf` is 4.8 MB** — by far the largest file served, roughly 4× the next biggest (`court-vision-report.pdf`, 1.2 MB). It's image-heavy plot output. Worth recompressing if page weight ever matters.
 - **Report PDFs are copied in by hand** from wherever they were authored (`ai-crowds-report.pdf` comes from `Flexible-Wisdom/reports/REPORT.pdf`). Nothing syncs them, so a regenerated report has to be re-copied here manually.
