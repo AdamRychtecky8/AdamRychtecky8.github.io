@@ -34,7 +34,7 @@ Hand-written **static HTML/CSS/JS**. No framework, no bundler, no npm, no Gemfil
 1. **Google Fonts** — Inter 400/500, `@import`ed at the top of [css/style.css](css/style.css).
 2. **marked** (Markdown renderer) — CDN `<script>` in [personalblog.html](personalblog.html), used only by the blog post view. [js/blog.js](js/blog.js) degrades to plain text if it fails to load.
 
-Everything else — the animated background, filtering, tabs, routing, read-time — is vanilla JS written in this repo.
+Everything else — the animated background, filtering, routing, read-time — is vanilla JS written in this repo.
 
 ---
 
@@ -44,8 +44,7 @@ Everything else — the animated background, filtering, tabs, routing, read-time
 index.html            Home — hero, highlights, "what I'm working on", contact
 about.html            About — photo + bio, direction cards, closing line, contact
 projects.html         Projects — filter bar + project card grid
-skills.html           Skills — tabbed competencies, language strip, coursework, "building toward"
-personalblog.html     Blog — index list AND single-post view (one file, two modes)
+personalblog.html     Blog — index list AND single-post view (one file, two modes). Hidden: not in the nav, noindex, reachable by direct URL
 resume.html           Resume — embedded PDF, download box, education + experience timelines
 
 css/style.css         Design system + all shared components (937 lines)
@@ -106,19 +105,21 @@ Configured **per page via data attributes on the canvas** — no JS edit needed:
 | `data-maxdist="130"` | Max px distance for a connection line | 90 full / 60 lite |
 | `data-lite` | Lite mode: fewer particles, shorter links, alpha × 0.7 | off |
 
-Current usage: [index.html](index.html) is `data-particles="110" data-maxdist="130"` (dense, hero-worthy). **All five other pages use `data-lite`** (20 particles / 60px / 70% alpha).
+Current usage: [index.html](index.html) is `data-particles="110" data-maxdist="130"` (dense, hero-worthy). **All four other pages use `data-lite`** (20 particles / 60px / 70% alpha).
 
 > The animation runs continuously via `requestAnimationFrame` with no `prefers-reduced-motion` guard and no pause when the tab is hidden. If motion sensitivity or battery ever comes up, that's the change to make.
 
 ### 4.2 Navigation — [js/nav.js](js/nav.js)
 
-The `<nav class="site-nav">` block is **copy-pasted into all six HTML files** — there is no include or template. Order: Home · About · Projects · Skills · Blog · Resume. Adding or renaming a page means editing six files by hand.
+The `<nav class="site-nav">` block is **copy-pasted into all five HTML files** — there is no include or template. Order: **Home · About · Projects · Resume** (four links). Adding or renaming a page means editing five files by hand.
+
+The Skills page was removed (Nov 2026). The **Blog is hidden, not deleted**: it has no nav link on any page, including its own, and [personalblog.html](personalblog.html) carries `<meta name="robots" content="noindex">`. It still works at `personalblog.html` and `personalblog.html?post=<slug>`. To bring it back, re-add `<li><a href="personalblog.html">Blog</a></li>` to all five navs and remove the robots meta.
 
 `nav.js` reads `location.pathname.split('/').pop()`, falls back to `index.html` when it's empty (the bare `/` root URL), and adds `.active` to the matching link. Styling for `.active` is in [css/style.css](css/style.css).
 
 ### 4.3 Footer
 
-Also duplicated per page (present on index, projects, skills, resume, blog — **[about.html](about.html) has no footer**). Hardcoded `© 2026` with inline-styled teal GitHub/LinkedIn links. Changing the year or a link means editing every copy.
+Also duplicated per page, present on all five pages (index, about, projects, resume, blog). Hardcoded `© 2026` with inline-styled teal GitHub/LinkedIn links. Changing the year or a link means editing every copy.
 
 ### 4.4 Contact section
 
@@ -137,16 +138,16 @@ The `.contact-section` block — label, "Get in Touch", divider, mailto, and Lin
 
 | Section | What it is |
 |---|---|
-| Hero | Name, uppercase teal discipline line ("Data Science · Machine Learning · Human-AI Systems"), italic mission line, then two buttons: `.btn-primary` → Projects, `.btn-secondary` → About. Text is inline-styled, not class-driven. |
+| Hero | Name, uppercase teal discipline line ("Data Science · Machine Learning · Human-AI Systems"), italic status line ("M.S. Data Science student at the University of Washington. Seeking a Summer 2027 internship."), then two buttons: `.btn-primary` → Projects, `.btn-secondary` → About. Text is inline-styled, not class-driven. |
 | Highlights | Three `.stat-card`s in `.stats-grid` — big `.stat-num` ("2+", "UW", "UCSB") over a `.stat-label`. |
-| What I'm working on | Three `.card`s — Honors Thesis, Dialed App, Graduate School. |
+| What I'm working on | Three `.card`s — Honors Thesis (completed, past tense), Dialed App, Court-Vision. Thesis and Court-Vision each end in a `.card-link` "See the project" → projects.html, wrapped in a `<p style="margin-top:1rem;">` because `.card-actions` is only styled inside `.project-card`. |
 | Get in Touch | Shared contact block ([§4.4](#44-contact-section)). |
 
 Static — no page-specific JS beyond `background.js` + `nav.js`.
 
 ### 5.2 [about.html](about.html) — About
 
-`.about-header` puts `.profile-photo-box` (`assets/profile-photo.jpg`) beside a `.bio` with a "Background" label and two paragraphs (the psych→stats pivot; now at UW). Then three `.work-card`s under "Where I'm Headed" (Systems of Intelligence · AI as Collaborator · Hard Problems, Done Properly), an italic centered closing line about reading, and the contact block. `.about-divider` rules separate the sections. Static; **no footer on this page**.
+`.about-header` puts `.profile-photo-box` (`assets/profile-photo.jpg`) beside a `.bio` with a "Background" label and two paragraphs (the psych→stats pivot; now at UW). Then three `.work-card`s under "Where I'm Headed" (Systems of Intelligence · AI as Collaborator · Hard Problems, Done Properly), an italic centered closing line about reading, and the contact block. `.about-divider` rules separate the sections. Static; has the shared footer (added Nov 2026).
 
 ### 5.3 [projects.html](projects.html) — Projects
 
@@ -158,33 +159,13 @@ The filter logic is a **~20-line inline `<script>` at the bottom of the page** (
 
 **Card anatomy:** optional "In Progress" pill (inline-styled blue) → `<h3>` title → optional small gray subtitle line (role/course context) → description paragraph → `.tags` of `.tag` spans (tech stack) → `.card-actions` with `.card-link` anchors (repo / report / live site).
 
-**Current cards, in order:** Court-Vision · When Human and AI Crowds Agree Too Much · Modeling Perceptual Decisions: Humans vs. LLMs · Dialed · Wavelength · PM2.5 & Alzheimer's Review · Olympics (Gold, Growth, and Glory) · IMDb Revenue · plus a ninth **"Building"** stub card ("Whatever may come next in my building process").
+**Current cards, in order:** Court-Vision · When Human and AI Crowds Agree Too Much · Modeling Perceptual Decisions: Humans vs. LLMs (subtitle: "Graduate-level statistical ML, built on honors thesis data") · Dialed · Wavelength · PM2.5 & Alzheimer's Review · Olympics (Gold, Growth, and Glory) · IMDb Revenue · plus a ninth **"Building"** stub card ("Whatever may come next in my building process").
+
+**Pending:** the "Building" stub is to be replaced by a **Golden Analytics** card placed **first** in the grid. Not added yet because the project details (role, data, method, result, links) still need to come from Adam.
 
 Two cards deliberately have **no `.card-actions` block at all**: **Wavelength** (in progress — no public repo or deployment yet) and the **"Building"** stub. That's intentional, not an omission: an empty `.card-link` renders as an invisible click target, so the block is left out entirely until there's a real URL. Add it back when there is one.
 
-### 5.4 [skills.html](skills.html) — Skills
-
-The most structurally complex page. A `.skills-hero-section` intro, then four sections:
-
-**a) Core Competencies — tabbed.** A `.tabs-bar[role="tablist"]` with four `.tab-btn`s (`data-tab="0..3"`): **ML & Modeling · AI Systems · Research · Human-AI**. Each maps to `#tab-panel-N`. An inline `<script>` at the bottom swaps `.active` and the `hidden` attribute, manages `aria-selected`, and re-triggers the fade with a double `requestAnimationFrame`. Panel 0 is open on load.
-
-Inside a panel: a `.cluster-fwd` narrative paragraph, then `.subgroup-label` headings over `.skill-pills` rows. Pill variants:
-- `.skill-pill` — standard
-- `.skill-pill.priority` — stronger teal fill/border, weight 500 (the headline skills)
-- `.skill-pill.sm` — smaller, used in the coursework cards
-- `data-tooltip="…"` — hover tooltip via `.skill-pill[data-tooltip]:hover::after` ([css/style.css:767](css/style.css#L767)), rendered as `content: attr(data-tooltip)` in a white bubble above the pill. It's `white-space: nowrap`, so **long tooltip text will overflow the viewport** — keep it to a short phrase. Hover-only: no keyboard or touch equivalent.
-
-Panels 1 and 3 end with a `.cluster-cta` button (Dialed live demo; Flexible-Wisdom thesis repo).
-
-**b) Languages & Tools strip.** `.lang-badge` spans in three weights: default (Python, R, SQL, TypeScript), `.secondary` (Next.js, PostgreSQL, Supabase, Git/GitHub), `.certified` (Azure AI Fundamentals ✓).
-
-**c) Academic Foundation.** `.academic-grid` of `.academic-card`s, one per course (PSTAT 231 / 126 / 120A-B / 115 / 134 / 175, PBS Core, WRIT W109ST), each a `.course-name` heading over `.skill-pill.sm` topic pills.
-
-**d) Currently Building Toward.** `.building-strip` of three `.building-item`s (UW MS Data Science · Multi-Agent AI Systems · Integrating Agentic Approaches), each a `.building-label` + `.building-sublabel`.
-
-> This page hardcodes `class="active"` on its own nav link *and* `nav.js` adds it — harmless duplication, but it's the only page that does this.
-
-### 5.5 [resume.html](resume.html) — Resume
+### 5.4 [resume.html](resume.html) — Resume
 
 1. **Embedded PDF** — an `<iframe src="assets/AdamRychtecky-Resume.pdf" height="900px">` in an inline-styled card. Browser-dependent: some mobile browsers won't render a PDF in an iframe, which is why the download box below matters.
 2. **Download box** — `.resume-download-box` with a `.btn-primary[download]` pointing at the same PDF.
@@ -193,7 +174,7 @@ Panels 1 and 3 end with a `.cluster-cta` button (Dialed live demo; Flexible-Wisd
 
 Only `AdamRychtecky-Resume.pdf` and `FinalTranscript - AdamRychtecky.pdf` are linked from this page; `AR25_Transcript.pdf` sits in [assets/](assets/) unreferenced.
 
-### 5.6 [personalblog.html](personalblog.html) — Blog
+### 5.5 [personalblog.html](personalblog.html) — Blog
 
 One HTML file that renders **two different views** depending on the URL. Fully covered in the next section.
 
@@ -293,14 +274,11 @@ Empty manifest → the list renders "No posts yet — check back soon."
 ### Add a project card
 Copy an existing `.project-card` block in [projects.html](projects.html). Set `data-category` to one or more of `ml psychology data other` (space-separated). Fill title, optional subtitle line, description, `.tag` spans, and `.card-link` anchors. Replace the "Building" stub card rather than adding a tenth if it's still there.
 
-### Add a skill pill
-In the right `#tab-panel-N` in [skills.html](skills.html), under the right `.subgroup-label`, add `<span class="skill-pill" data-tooltip="short context">Name</span>`. Add `priority` to the class for headline skills. Keep the tooltip short — it's `nowrap`.
-
 ### Swap the resume PDF
 Drop the new file in [assets/](assets/) and update **both** references in [resume.html](resume.html) — the `<iframe src>` and the download `<a href>`. Use a **forward slash** (`assets/Name.pdf`). Same filename = zero edits.
 
 ### Add or rename a nav page
-Edit the `<nav class="site-nav">` block in **all six** HTML files. `nav.js` picks up highlighting automatically from the filename.
+Edit the `<nav class="site-nav">` block in **all five** HTML files. `nav.js` picks up highlighting automatically from the filename.
 
 ### Change the background density
 Edit the `data-particles` / `data-maxdist` attributes on that page's `<canvas>`. Only touch [js/background.js](js/background.js) if you're changing the defaults or the animation itself.
@@ -309,7 +287,7 @@ Edit the `data-particles` / `data-maxdist` attributes on that page's `<canvas>`.
 Edit the `:root` tokens in [css/style.css](css/style.css). **Two places don't read the tokens** and need a matching manual edit: the `#f7f5ee` canvas fill and `rgba(29,158,117,…)` particle/noise colors in [js/background.js](js/background.js), and the teal/blue values duplicated in the `[data-hue]` ramps in [css/blog.css](css/blog.css).
 
 ### Update the footer year
-It's hardcoded `© 2026` in five files (all but `about.html`).
+It's hardcoded `© 2026` in all five HTML files.
 
 ---
 
@@ -326,10 +304,6 @@ When a request names something loosely, this is where it lives.
 | "the project boxes" | Project cards | `.project-card` in [projects.html](projects.html) |
 | "the filter buttons" | Project or blog filters | `.filter-bar` / `.filter-btn`; blog's is `.blog-filter` |
 | "the little tech labels" | Tech chips on project cards | `.tags` > `.tag` |
-| "the skill bubbles" | Skill pills | `.skill-pill`, `.priority`, `.sm` in [skills.html](skills.html) |
-| "the hover text" | Skill tooltip | `data-tooltip` attr + [css/style.css:767](css/style.css#L767) |
-| "the tabs" | Core Competencies tabs | `.tabs-bar` / `.tab-btn` / `.tab-panel` + inline script in [skills.html](skills.html) |
-| "the course boxes" | Academic Foundation | `.academic-grid` / `.academic-card` |
 | "the job/school list" | Resume timelines | `.timeline` / `.timeline-item` in [resume.html](resume.html) |
 | "the blog list" | Blog index | `#blog-list`, `.log-group`, `.log-entry` |
 | "the colored dots/tags on the blog" | Topic hues | `TAG_HUES` in [js/blog.js](js/blog.js) + `[data-hue]` in [css/blog.css](css/blog.css) |
@@ -366,14 +340,14 @@ python -m http.server 8000
 External links all resolve too. Note that **LinkedIn returns HTTP 999 to automated checks** — that is their bot-blocking response, not a broken link. Don't "fix" it.
 
 ### Structural fragility
-- **Nav duplicated across six files**; **footer duplicated across five** (about.html has none) with a hardcoded `© 2026`; **contact block duplicated across two**. No includes, so these drift silently.
+- **Nav duplicated across five files**; **footer duplicated across five** with a hardcoded `© 2026`; **contact block duplicated across two**. No includes, so these drift silently.
 - **Heavy inline styling.** Hero text, "In Progress" badges, footer links, the resume iframe wrapper, and several project subtitle lines are styled with `style="…"` attributes rather than classes — a global CSS change won't reach them.
-- **Two inline `<script>` blocks** (projects filter, skills tabs) live in the HTML rather than `js/`. Only the blog's logic was extracted into a file.
+- **One inline `<script>` block** (projects filter) lives in the HTML rather than `js/`. Only the blog's logic was extracted into a file.
 - **Project filter uses substring matching** on `data-category` — don't add a category name that's a prefix of another.
 - **Blog CDN dependency** on jsDelivr for `marked`; there's a graceful plain-text fallback, but formatting is lost when it's blocked.
 - **`fetch` means the blog needs HTTP** — see [§6.6](#66-️-the-blog-needs-a-real-http-server).
 - **No `prefers-reduced-motion` handling** anywhere (canvas animation, fade-ups).
-- **Skill tooltips are hover-only and `nowrap`** — inaccessible by keyboard/touch, and long text overflows.
+- **Orphaned Skills CSS.** skills.html is gone, but its rules (`.skills-hero-section`, `.tabs-bar`, `.tab-btn`, `.skill-pill`, tooltips, `.academic-card`, `.lang-badge`, `.building-strip`, …) are still in [css/style.css](css/style.css) from about line 650 down. Nothing uses them; safe to delete in a styling pass. The line-number references in this file still point at the current CSS.
 - **`.fade-up` fires on page load, not on scroll** — below-fold cards have finished animating before they're seen.
 
 ### Asset hygiene
@@ -403,7 +377,7 @@ This repo began as GitHub's *"Skills: GitHub Pages"* course template (Jekyll + M
 
 **Editing these files will not change the live site.** They're safe removal candidates if you ever tidy up — confirm with Adam before deleting.
 
-[docs/](docs/) is different: it's **not** a Pages source folder and not dead. It's hand-written per-page UI documentation (design tokens, page-by-page structure) kept for reference — see [docs/README.md](docs/README.md). Note it predates the blog, so it documents five pages, not six.
+[docs/](docs/) is different: it's **not** a Pages source folder and not dead. It's hand-written per-page UI documentation (design tokens, page-by-page structure) kept for reference — see [docs/README.md](docs/README.md). Note it predates the blog and the Skills removal: it documents the original five pages, including a now-deleted skills.html ([docs/skills.md](docs/skills.md)).
 
 {
   "attribution": {
